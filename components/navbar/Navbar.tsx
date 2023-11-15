@@ -29,11 +29,11 @@ export const Navbar = () => {
         <NextUINavbar
             onMenuOpenChange={setIsMenuOpen}
             className="h-[100px] bg-light text-dark bg-opacity-50 backdrop-filter backdrop-blur-lg"
-            maxWidth="lg"
+            maxWidth="2xl"
             position="sticky"
             isBordered
         >
-            <NavbarContent className="px-0">
+            <NavbarContent>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     className="sm:hidden"
@@ -57,10 +57,15 @@ export const Navbar = () => {
                             className="text-green text-[16px] font-serif relative block"
                             href={item.href}
                         >
-                            
                             <span className="inline-block relative">
                                 {item.label}
-                                <span className={`${item.href === currentPath ? "after:content-['q'] after:font-northwellSwash after:absolute after:inset-x-0 after:bottom-[-16px] after:w-[90%] after:text-center after:text-[30px]" : ""}`}>
+                                <span
+                                    className={`${
+                                        item.href === currentPath
+                                            ? "after:content-['q'] after:font-northwellSwash after:absolute after:inset-x-0 after:bottom-[-16px] after:w-[90%] after:text-center after:text-[30px]"
+                                            : ""
+                                    }`}
+                                >
                                     &nbsp;
                                 </span>
                             </span>

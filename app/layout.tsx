@@ -20,12 +20,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html
             lang="en"
-            className={`${northwell.variable} ${northwellAlt.variable} ${northwellSwash.variable} ${PTSerif.variable} scroll-smooth bg-light bg-[url('/images/bg-pattern.png')] bg-`}
+            className={`${northwell.variable} ${northwellAlt.variable} ${northwellSwash.variable} ${PTSerif.variable} scroll-smooth bg-light bg-[url('/images/patterns/stitching.png')]`}
         >
             <body>
                 <Providers>
                     <Navbar />
-                    <div className="max-w-[1024px] mx-auto">
+                    <div className="max-w-[1536px] mx-auto realtive">
                         {children}
                     </div>
                 </Providers>
