@@ -4,8 +4,9 @@ import React from "react";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { Image } from "@nextui-org/react";
-import { carouselImages } from "@/utlis/carousel-images";
+import { carouselImages } from "@/utlis/carouselImages";
 import "@/public/css/carousel.css";
+import { motion } from "framer-motion";
 
 export const Carousel = () => {
     const [sliderRef] = useKeenSlider<HTMLDivElement>(
@@ -45,9 +46,12 @@ export const Carousel = () => {
     );
 
     return (
-        <div
+        <motion.div
             ref={sliderRef}
-            className="keen-slider w-[75%] h-[85vh] text-light text-[56px] font-northwell text-center rounded-[50px]"
+            initial={{ y: 200 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1.5, delay: 0.5, type: "spring" }}
+            className="keen-slider w-[80%] h-fit text-light text-[56px] font-northwell text-center rounded-[50px] absolute right-0"
         >
             {carouselImages.map((image) => (
                 <div
@@ -57,10 +61,10 @@ export const Carousel = () => {
                     <Image
                         src={image.src}
                         alt={image.alt}
-                        className="object-cover rounded-none h-[85vh]"
+                        className="object-cover rounded-none h-[100%]"
                     />
                 </div>
             ))}
-        </div>
+        </motion.div>
     );
 };

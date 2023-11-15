@@ -1,11 +1,19 @@
+"use client";
+
 import { Carousel } from "./Carousel";
 import { MissionStatement } from "./MissionStatement";
+import { motion } from "framer-motion";
 
 export const Hero = () => {
     return (
-        <div className="flex justify-end items-center h-screen mt-[-50px] relative">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.75, delay: 0.75 }}
+            className="flex items-center h-[800px] relative"
+        >
             <Carousel />
             <MissionStatement />
-        </div>
+        </motion.div>
     );
 };

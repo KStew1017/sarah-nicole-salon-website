@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body>
                 <Providers>
                     <Navbar />
-                    <div className="max-w-[1536px] mx-auto realtive">
+                    <div className="max-w-[1280px] mx-auto realtive">
                         {children}
                     </div>
                 </Providers>

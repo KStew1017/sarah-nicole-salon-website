@@ -29,11 +29,13 @@ export const Navbar = () => {
         <NextUINavbar
             onMenuOpenChange={setIsMenuOpen}
             className="h-[100px] bg-light text-dark bg-opacity-50 backdrop-filter backdrop-blur-lg"
-            maxWidth="2xl"
+            maxWidth="full"
             position="sticky"
             isBordered
         >
-            <NavbarContent>
+            <NavbarContent
+                className="ml-[100px]"
+            >
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     className="sm:hidden"
@@ -44,7 +46,7 @@ export const Navbar = () => {
             </NavbarContent>
 
             <NavbarContent
-                className="hidden sm:flex gap-10"
+                className="hidden sm:flex gap-10 mr-[100px]"
                 justify="end"
             >
                 {siteConfig.navItems.map((item) => (
@@ -54,7 +56,7 @@ export const Navbar = () => {
                         className="relative"
                     >
                         <Link
-                            className="text-green text-[16px] font-serif relative block"
+                            className="text-green text-[18px] font-serif relative block"
                             href={item.href}
                         >
                             <span className="inline-block relative">
@@ -82,7 +84,7 @@ export const Navbar = () => {
                     <NavbarItem>
                         <DropdownTrigger>
                             <Button
-                                className="text-green text-[16px] font-serif aria-expanded:scale-100 data-[pressed=true]:scale-100 data-[hover=true]:bg-light aria-expanded:opacity-100 data-[pressed=true]:opacity-100 data-[pressed=true]:text-green focus:outline-none active:text-green transition-transform-colors-opacity p-0"
+                                className="text-green text-[18px] font-serif aria-expanded:scale-100 data-[pressed=true]:scale-100 data-[hover=true]:bg-light aria-expanded:opacity-100 data-[pressed=true]:opacity-100 data-[pressed=true]:text-green focus:outline-none active:text-green transition-transform-colors-opacity p-0"
                                 variant="light"
                                 disableRipple
                                 endContent={
@@ -116,7 +118,7 @@ export const Navbar = () => {
                                 textValue={item.label}
                             >
                                 <Link
-                                    className="text-green text-[16px] transition ease-s-curve font-serif"
+                                    className="text-green text-[18px] transition ease-s-curve font-serif"
                                     href={item.href}
                                 >
                                     {item.label}
