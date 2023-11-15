@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import { nextui } from "@nextui-org/react";
 
 /** @type {import('tailwindcss').Config} **/
-const config: Config = {
+module.exports = {
     content: [
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
         "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,6 +13,7 @@ const config: Config = {
         extend: {
             colors: {
                 tan: "#e8dfda",
+                tan200: "#DDD5D1",
                 light: "#f8f0eb",
                 green: "#013220",
                 blue: "#1D363A",
@@ -27,9 +28,13 @@ const config: Config = {
             northwellAlt: ["var(--font-northwell-alt)"],
             northwellSwash: ["var(--font-northwell-swash)"],
         },
+        transitionProperty: {
+            transform: "transform",
+        },
+        rotate: {
+            "180": "180deg",
+        },
     },
     darkMode: "class",
     plugins: [nextui()],
 };
-
-export default config;

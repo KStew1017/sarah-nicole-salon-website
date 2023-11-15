@@ -7,16 +7,26 @@ export const siteConfig = {
             href: "/",
         },
         {
-            label: "stylists",
+            label: "Stylists",
             href: "/stylists",
         },
         {
-            label: "testimonials",
-            href: "#testimonials",
+            label: "Gallery",
+            href: "/gallery",
+        },
+    ],
+    aboutUs: [
+        {
+            label: "Testimonials",
+            href: "/#testimonials",
         },
         {
-            label: "location",
-            href: "#location",
+            label: "Location",
+            href: "/#location",
+        },
+        {
+            label: "Contact",
+            href: "/#contact",
         },
     ],
 };
