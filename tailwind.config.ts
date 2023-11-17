@@ -17,9 +17,13 @@ module.exports = {
                 light: "#f8f0eb",
                 green: "#013220",
                 blue: "#1D363A",
+                gold: "#C3AC3C"
             },
             transitionTimingFunction: {
                 "s-curve": "cubic-bezier(0.075, 0.82, 0.165, 1)",
+            },
+            boxShadow: {
+                "3xl": "0px 0px 35px 20px rgba(0,0,0,0.1)",
             },
         },
         fontFamily: {

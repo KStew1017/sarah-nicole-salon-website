@@ -13,13 +13,13 @@ import {
     Button,
     DropdownItem,
 } from "@nextui-org/react";
-import { siteConfig } from "@/configs/siteConfig";
+import { siteInfo } from "@/configs/siteInfo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Expand } from "@/utlis/icons";
 import tailwindCustomColors from "@/utlis/customColors";
 
-export const Navbar = () => {
+export const Navbar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 
@@ -33,9 +33,7 @@ export const Navbar = () => {
             position="sticky"
             isBordered
         >
-            <NavbarContent
-                className="ml-[100px]"
-            >
+            <NavbarContent className="ml-[100px]">
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     className="sm:hidden"
@@ -49,7 +47,7 @@ export const Navbar = () => {
                 className="hidden sm:flex gap-10 mr-[100px]"
                 justify="end"
             >
-                {siteConfig.navItems.map((item) => (
+                {siteInfo.navItems.map((item) => (
                     <NavbarItem
                         key={item.href}
                         isActive={item.href === currentPath}
@@ -59,7 +57,7 @@ export const Navbar = () => {
                             className="text-green text-[18px] font-serif relative block"
                             href={item.href}
                         >
-                            <span className="inline-block relative">
+                            <span className="inline-block relative hover:scale-105 ease-s-curve transition-transform subpixel-antialiased">
                                 {item.label}
                                 <span
                                     className={`${
@@ -77,14 +75,14 @@ export const Navbar = () => {
                 <Dropdown
                     onOpenChange={setIsDropdownOpen}
                     classNames={{
-                        base: "shadow-none drop-shadow-none",
-                        content: "bg-light",
+                        base: "rounded-xl bg-light bg-opacity-50 backdrop-filter backdrop-blur-md",
+                        content: "bg-opacity-0",
                     }}
                 >
                     <NavbarItem>
                         <DropdownTrigger>
                             <Button
-                                className="text-green text-[18px] font-serif aria-expanded:scale-100 data-[pressed=true]:scale-100 data-[hover=true]:bg-light aria-expanded:opacity-100 data-[pressed=true]:opacity-100 data-[pressed=true]:text-green focus:outline-none active:text-green transition-transform-colors-opacity p-0"
+                                className="text-green text-[18px] font-serif aria-expanded:scale-100 data-[pressed=true]:scale-100 data-[hover=true]:bg-default/0 aria-expanded:opacity-100 data-[pressed=true]:opacity-100 data-[pressed=true]:text-green focus:outline-none active:text-green transition-transform-colors-opacity p-0 hover:scale-105 ease-s-curve transition-transform subpixel-antialiased"
                                 variant="light"
                                 disableRipple
                                 endContent={
@@ -109,10 +107,10 @@ export const Navbar = () => {
                     <DropdownMenu
                         aria-label="Dropdown menu"
                         itemClasses={{
-                            base: "data-[hover=true]:bg-tan text-center",
+                            base: "text-center text-green data-[hover=true]:bg-default/0 data-[hover=true]:scale-105 ease-s-curve transition-transform subpixel-antialiased",
                         }}
                     >
-                        {siteConfig.aboutUs.map((item) => (
+                        {siteInfo.aboutUs.map((item) => (
                             <DropdownItem
                                 key={item.href}
                                 textValue={item.label}

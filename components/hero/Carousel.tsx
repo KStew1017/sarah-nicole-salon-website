@@ -5,10 +5,9 @@ import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { Image } from "@nextui-org/react";
 import { carouselImages } from "@/utlis/carouselImages";
-import "@/public/css/carousel.css";
 import { motion } from "framer-motion";
 
-export const Carousel = () => {
+export const Carousel: React.FC = () => {
     const [sliderRef] = useKeenSlider<HTMLDivElement>(
         {
             loop: true,
@@ -51,7 +50,7 @@ export const Carousel = () => {
             initial={{ y: 200 }}
             animate={{ y: 0 }}
             transition={{ duration: 1.5, delay: 0.5, type: "spring" }}
-            className="keen-slider w-[80%] h-fit text-light text-[56px] font-northwell text-center rounded-[50px] absolute right-0"
+            className="keen-slider w-[calc(80%_-_1px)] h-fit text-light text-[56px] font-northwell text-center rounded-[50px] absolute right-0 shadow-3xl"
         >
             {carouselImages.map((image) => (
                 <div

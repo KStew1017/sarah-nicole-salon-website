@@ -1,4 +1,4 @@
-export const siteConfig = {
+export const siteInfo = {
     title: "Sarah Nicole Salon",
     description: "The artistry of style, the quality of experience, and the beauty of you.",
     navItems: [

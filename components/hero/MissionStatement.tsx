@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@nextui-org/react";
 import { motion } from "framer-motion";
 
-export const MissionStatement = () => {
+export const MissionStatement: React.FC = () => {
     return (
         <motion.div
             initial={{ y: 200 }}
@@ -9,7 +9,7 @@ export const MissionStatement = () => {
             transition={{ duration: 1.5, delay: 0.75, type: "spring" }}
             className="max-w-[40%] h-fit absolute left-0"
         >
-            <Card className="rounded-[50px] p-[25px] bg-light text-dark bg-opacity-50 backdrop-filter backdrop-blur-2xl">
+            <Card className="rounded-[50px] p-[25px] bg-light text-dark bg-opacity-50 backdrop-filter backdrop-blur-2xl shadow-3xl">
                 <CardHeader className="flex gap-3">
                     <p className="text-[34px] font-serif text-green text-center">
                         The artistry of{" "}
