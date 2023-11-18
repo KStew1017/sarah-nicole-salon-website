@@ -9,9 +9,11 @@ interface ProfileProps {
 }
 
 export const Profile: React.FC<ProfileProps> = ({ stylistName, even, stylistQuote }) => {
-    console.log(even);
     return (
-        <Reveal hiddenVariant={!even ? "hiddenXNeg" : "hiddenXPos"} visibleVariant={!even ? "visibleXNeg" : "visibleXPos"}>
+        <Reveal
+            hiddenVariant={!even ? "hiddenXNeg" : "hiddenXPos"}
+            visibleVariant={!even ? "visibleXNeg" : "visibleXPos"}
+        >
             <div className="flex relative justify-center items-center">
                 <ProfileCard
                     stylistName={stylistName}

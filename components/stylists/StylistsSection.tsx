@@ -8,10 +8,14 @@ export const Stylists: React.FC = () => {
 
     return (
         <>
-            <Reveal hiddenVariant="hiddenXPos" visibleVariant="visibleXPos">
+            <Reveal
+                hiddenVariant="hiddenXPos"
+                visibleVariant="visibleXPos"
+            >
                 <Heading
                     title="Meet Us"
                     decoration="e"
+                    textColor="green"
                 />
             </Reveal>
             <div className="flex-col flex justify-center items-center gap-[250px] mt-[200px]">

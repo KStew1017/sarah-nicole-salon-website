@@ -5,6 +5,11 @@ import { northwell, northwellAlt, northwellSwash, PTSerif } from "@/utlis/fonts"
 import "./globals.css";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Background } from "@/components/layout/Background";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import { HomeBackgroundIcons } from "@/components/layout/HomeBackgroundIcons";
+
+config.autoAddCss = false;
 
 export const metadata: Metadata = {
     title: {
@@ -27,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Providers>
                     <Navbar />
                     <Background />
+                    <HomeBackgroundIcons />
                     <div className="max-w-[1280px] mx-auto realtive">{children}</div>
                 </Providers>
             </body>
