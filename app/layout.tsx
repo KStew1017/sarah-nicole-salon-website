@@ -7,7 +7,9 @@ import { Navbar } from "@/components/navbar/Navbar";
 import { Background } from "@/components/layout/Background";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import { HomeBackgroundIcons } from "@/components/layout/HomeBackgroundIcons";
+import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
+import { FooterSection } from "@/components/footer/FooterSection";
+import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-svg-icons";
 
 config.autoAddCss = false;
 
@@ -32,8 +34,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Providers>
                     <Navbar />
                     <Background />
-                    <HomeBackgroundIcons />
-                    <div className="max-w-[1280px] mx-auto realtive">{children}</div>
+                    <div className="overflow-hidden">
+                        <BackgroundIcons
+                            rows={8}
+                            icon1={faSprayCanSparkles}
+                            icon2={faSpa}
+                            icon3={faScissors}
+                        />
+                        <div className="mx-auto">{children}</div>
+                    </div>
+                    <FooterSection />
                 </Providers>
             </body>
         </html>

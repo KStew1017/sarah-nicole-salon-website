@@ -29,4 +29,22 @@ export const siteContent = {
             paymentMethods: ["Cash", "Check", "Zelle"],
         },
     ],
+    reviews: [
+        {
+            "name": "Chris K.",
+            "review": `"Love this salon! Becki always does a great job with my hair! She also does my husband and mother! We wouldn't go anywhere else! I highly recommend Becki and Sarah Nicole Salon!"`
+        },
+        {
+            "name": "Jamie S.",
+            "review": `"Misty does amazing nails! I have been seeing her for about 2 years and am always extremely happy with how my nails turn out. She is extremely talented and creative!"`
+        },
+        {
+            "name": "Debby J.",
+            "review": `"I love this salon💕 It reminds me of an intimate shop my mom went to! My hair stylist has become one of my dearest friends!"`
+        },
+        {
+            "name": "Rosalinda Y.",
+            "review": `"A great place to go the ladies are super nice. I think I finally found the perfect place to cut my hair."`
+        }
+    ]
 };

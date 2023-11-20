@@ -33,7 +33,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
             </CardBody>
             <Divider className="w-[80%] mx-auto" />
             <CardFooter className="flex justify-center items-center h-fit p-[30px]">
-                <Link href={`/stylists/${stylistName}`}>
+                <Link href={`/stylists/${stylistName.split(" ")[0].toLowerCase()}`}>
                     <Button
                         radius="full"
                         className={`font-serif text-[20px] text-light hover:shadow-lg hover:scale-105 data-[hover=true]:opacity-100`}

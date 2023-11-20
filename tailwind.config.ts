@@ -41,5 +41,5 @@ module.exports = {
     },
     darkMode: "class",
     important: true,
-    plugins: [nextui()],
+    plugins: [nextui(), require("tailwind-gradient-mask-image")],
 };

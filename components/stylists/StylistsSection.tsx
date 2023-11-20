@@ -7,7 +7,7 @@ export const Stylists: React.FC = () => {
     const stylists = siteContent.stylists;
 
     return (
-        <>
+        <div className="max-w-[1250px] mx-auto">
             <Reveal
                 hiddenVariant="hiddenXPos"
                 visibleVariant="visibleXPos"
@@ -28,6 +28,6 @@ export const Stylists: React.FC = () => {
                     />
                 ))}
             </div>
-        </>
+        </div>
     );
 };

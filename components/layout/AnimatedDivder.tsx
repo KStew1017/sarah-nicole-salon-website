@@ -7,6 +7,7 @@ export const AnimatedDivider: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.75, delay: 1.5 }}
+            className="flex justify-center items-center max-w-[1250px] mx-auto"
         >
             <Divider className="my-[100px]" />
         </motion.div>
