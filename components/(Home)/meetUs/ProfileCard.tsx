@@ -1,5 +1,4 @@
-import { Button, Card, CardBody, CardFooter, CardHeader, Divider } from "@nextui-org/react";
-import { Link } from "@nextui-org/react";
+import { Button, Card, CardBody, CardFooter, CardHeader, Divider, Link } from "@nextui-org/react";
 import React from "react";
 
 interface ProfileCardProps {

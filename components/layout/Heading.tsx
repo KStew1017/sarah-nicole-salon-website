@@ -2,14 +2,17 @@ interface HeadingProps {
     title: string;
     decoration: string;
     textColor: string;
+    font: string;
+    textStyles?: string;
+    boxStyles?: string;
 }
 
-export const Heading: React.FC<HeadingProps> = ({ title, decoration, textColor }) => {
+export const Heading: React.FC<HeadingProps> = ({ title, decoration, textColor, font, textStyles, boxStyles }) => {
     return (
-        <div className="flex justify-center items-center mb-[50px]">
-            <span className={`font-northwellSwash text-[80px] text-${textColor} drop-shadow-md`}>{decoration}</span>
-            <h1 className={`font-northwell text-[80px] text-${textColor} drop-shadow-md`}>{title}</h1>
-            <span className={`font-northwellSwash text-[80px] text-${textColor} drop-shadow-md`}>{decoration}</span>
+        <div className={`flex justify-center items-center mb-[50px] ${boxStyles}`}>
+            <span className={`font-northwellSwash text-[80px] text-${textColor}`}>{decoration}</span>
+            <h1 className={`font-${font} text-[80px] text-${textColor} ${textStyles}`}>{title}</h1>
+            <span className={`font-northwellSwash text-[80px] text-${textColor}`}>{decoration}</span>
         </div>
     );
 };

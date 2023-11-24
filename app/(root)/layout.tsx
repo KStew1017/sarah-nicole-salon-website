@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { siteInfo } from "@/configs/siteInfo";
 import { Providers } from "./providers";
 import { northwell, northwellAlt, northwellSwash, PTSerif } from "@/utlis/fonts";
-import "./globals.css";
+import "../globals.css";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Background } from "@/components/layout/Background";
 import "@fortawesome/fontawesome-svg-core/styles.css";

@@ -12,13 +12,6 @@ interface HomeBackgroundIconsProps {
 }
 
 export const BackgroundIcons: React.FC<HomeBackgroundIconsProps> = ({ rows, icon1, icon2, icon3 }) => {
-    useEffect(() => {
-        onscroll = () => { 
-            const documentHeight = document.documentElement.scrollHeight;
-            console.log(documentHeight);
-        }
-    }, []);
-
     return (
         <div
             style={{
@@ -30,6 +23,7 @@ export const BackgroundIcons: React.FC<HomeBackgroundIconsProps> = ({ rows, icon
                 width: "100%",
                 height: "100%",
                 top: "100%",
+                zIndex: -1,
             }}
         >
             {Array(rows)

@@ -5,6 +5,7 @@ import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
 import tailwindCustomColors from "@/utlis/customColors";
 import { motion } from "framer-motion";
+import { Reveal } from "@/utlis/reveal";
 
 interface BackgroundIconsRowProps {
     row: number;

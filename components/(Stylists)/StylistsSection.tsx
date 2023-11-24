@@ -1,9 +1,9 @@
-import { Reveal } from "@/utlis/reveal";
 import { Heading } from "../layout/Heading";
-import { Profile } from "./Profile";
+import { OverviewCard } from "./OverviewCard";
 import { siteContent } from "@/configs/siteContent";
+import { Reveal } from "@/utlis/reveal";
 
-export const Stylists: React.FC = () => {
+export const StylistsSection = () => {
     const stylists = siteContent.stylists;
 
     return (
@@ -13,16 +13,19 @@ export const Stylists: React.FC = () => {
                 visibleVariant="visibleXPos"
             >
                 <Heading
-                    title="Meet Us"
+                    title="Stylists"
                     decoration="e"
+                    font="northwell"
+                    textStyles="tracking-[10px]"
+                    boxStyles="mt-[100px]"
                     textColor="green"
                 />
             </Reveal>
-            <div className="flex-col flex justify-center items-center gap-[250px] mt-[200px]">
+            <div className="flex flex-col gap-[100px] py-[50px]">
                 {stylists.map((stylist, i) => (
-                    <Profile
+                    <OverviewCard
                         stylistName={stylist.name}
-                        stylistQuote={stylist.quote}
+                        stylistServices={stylist.services}
                         key={i}
                         even={(i + 1) % 2 === 0}
                     />

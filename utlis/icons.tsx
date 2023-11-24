@@ -1,6 +1,4 @@
-import * as React from "react";
-
-interface ExpandProps {
+interface CustomIconProps {
     color?: string;
     customClass?: string;
     expanded?: boolean;
@@ -8,7 +6,7 @@ interface ExpandProps {
     height?: string;
 }
 
-export const Expand = ({ color = "current color", customClass, expanded, width, height }: ExpandProps) => (
+export const Expand = ({ color = "current color", customClass, expanded, width, height }: CustomIconProps) => (
     <div className={customClass}>
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -20,6 +18,22 @@ export const Expand = ({ color = "current color", customClass, expanded, width, 
             <path
                 fill={color}
                 d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"
+            />
+        </svg>
+    </div>
+);
+
+export const Zelle = ({ color = "current color", customClass, width = "48", height = "48" }: CustomIconProps) => (
+    <div className={customClass}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={width}
+            height={height}
+            viewBox="0 0 24 24"
+        >
+            <path
+                fill={color}
+                d="M13.559 24h-2.841a.483.483 0 0 1-.483-.483v-2.765H5.638a.667.667 0 0 1-.666-.666v-2.234a.67.67 0 0 1 .142-.412l8.139-10.382h-7.25a.667.667 0 0 1-.667-.667V3.914c0-.367.299-.666.666-.666h4.23V.483c0-.266.217-.483.483-.483h2.841c.266 0 .483.217.483.483v2.765h4.323c.367 0 .666.299.666.666v2.137a.67.67 0 0 1-.141.41l-8.19 10.481h7.665c.367 0 .666.299.666.666v2.477a.667.667 0 0 1-.666.667h-4.32v2.765a.483.483 0 0 1-.483.483Z"
             />
         </svg>
     </div>
