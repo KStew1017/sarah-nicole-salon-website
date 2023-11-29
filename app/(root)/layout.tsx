@@ -32,18 +32,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
             <body>
                 <Providers>
-                    <Navbar />
-                    <Background />
-                    <div className="overflow-hidden">
-                        <BackgroundIcons
-                            rows={8}
-                            icon1={faSprayCanSparkles}
-                            icon2={faSpa}
-                            icon3={faScissors}
-                        />
-                        <div className="mx-auto">{children}</div>
+                    <div className="flex flex-col min-h-screen">
+                        <Navbar />
+                        <Background />
+                        <div className="overflow-hidden flex-grow">
+
+                            <div className="mx-auto">{children}</div>
+                        </div>
+                        <FooterSection />
                     </div>
-                    <FooterSection />
                 </Providers>
             </body>
         </html>
