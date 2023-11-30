@@ -24,6 +24,7 @@ export const Navbar: React.FC = () => {
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 
     const currentPath = usePathname();
+    console.log(currentPath);
 
     return (
         <NextUINavbar
@@ -50,7 +51,7 @@ export const Navbar: React.FC = () => {
                 {siteInfo.navItems.map((item) => (
                     <NavbarItem
                         key={item.href}
-                        isActive={item.href === currentPath}
+                        isActive={item.href === "/" ? currentPath === item.href : currentPath.startsWith(item.href)}
                         className="relative"
                     >
                         <Link
@@ -60,11 +61,12 @@ export const Navbar: React.FC = () => {
                             <span className="inline-block relative hover:scale-105 ease-s-curve transition-transform subpixel-antialiased">
                                 {item.label}
                                 <span
-                                    className={`${
-                                        item.href === currentPath
+                                    className={
+                                        (item.href === "/" && currentPath === item.href) ||
+                                        (item.href !== "/" && currentPath.startsWith(item.href))
                                             ? "after:content-['q'] after:font-northwellSwash after:absolute after:inset-x-0 after:bottom-[-16px] after:w-[90%] after:text-center after:text-[30px]"
                                             : ""
-                                    }`}
+                                    }
                                 >
                                     &nbsp;
                                 </span>

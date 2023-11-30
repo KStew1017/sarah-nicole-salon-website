@@ -6,6 +6,7 @@ import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import tailwindCustomColors from "@/utlis/customColors";
 import { StylistHeader } from "@/components/(Stylists)/(StylistPage)/header/HeaderSection";
 import { ServicesSection } from "@/components/(Stylists)/(StylistPage)/services/ServicesSection";
+import { AppointmentsSection } from "@/components/(Stylists)/(StylistPage)/appointments/AppointmentsSection";
 
 export default function StylistPage({ params }: { params: { stylist: string } }) {
     const stylists = siteContent.stylists;
@@ -38,7 +39,8 @@ export default function StylistPage({ params }: { params: { stylist: string } })
             <>
                 <StylistHeader stylist={stylist} />
                 <ServicesSection stylist={stylist} />
+                <AppointmentsSection stylist={stylist} />
             </>
-        )
+        );
     }
 }

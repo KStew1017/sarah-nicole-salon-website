@@ -1,9 +1,7 @@
-"use client";
-
 import { Reveal } from "@/utlis/reveal";
 import { StylistType } from "@/utlis/types";
 import { motion } from "framer-motion";
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { useInView } from "react-intersection-observer";
 
 interface ServicesListProps {
@@ -11,10 +9,6 @@ interface ServicesListProps {
 }
 
 export const ServicesList: React.FC<ServicesListProps> = ({ stylist }) => {
-    const [ref, inView] = useInView({
-        triggerOnce: true, // Change this to false if you want the animation to trigger again whenever it comes in/out of view
-    });
-
     return (
         <div className="flex flex-col text-center gap-[25px]">
             {stylist.services.map((service, i) => (
@@ -25,21 +19,21 @@ export const ServicesList: React.FC<ServicesListProps> = ({ stylist }) => {
                 >
                     <div
                         key={i}
-                        style={{ fontSize: `${80 - (i + 2) ** 2}px` }}
+                        style={{ fontSize: `${80 - (i + 2) * 6}px` }}
                         className="font-serif text-green flex justify-center"
                     >
                         {service.split("").map((letter, j) => {
                             const [ref, inView] = useInView({
                                 triggerOnce: true,
                             });
-
                             return (
                                 <motion.div
                                     ref={ref}
                                     key={j}
-                                    initial={{ opacity: 0, y: 20, rotate: -10 }}
-                                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20, rotate: inView ? 0 : -10 }}
+                                    initial={{ opacity: 0, y: 25, rotate: -50 }}
+                                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 25, rotate: inView ? 0 : -50 }}
                                     transition={{ delay: j * 0.1 }}
+                                    style={{ whiteSpace: "pre" }}
                                 >
                                     {letter}
                                 </motion.div>

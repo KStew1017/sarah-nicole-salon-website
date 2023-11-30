@@ -1,7 +1,6 @@
 import { Heading } from "@/components/layout/Heading";
 import { ServicesList } from "./ServicesList";
 import { StylistType } from "@/utlis/types";
-import { motion } from "framer-motion";
 import { Reveal } from "@/utlis/reveal";
 
 interface ServicesListProps {
