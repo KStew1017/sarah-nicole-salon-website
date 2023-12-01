@@ -20,8 +20,14 @@ export const AppointmentsCard: React.FC<AppointmentsCardProps> = ({ stylist }) =
                 </CardHeader>
                 <CardBody className="flex justify-center items-center text-light font-serif text-center text-[24px] w-[75%]">
                     <p>
-                        To book an appointment, please call the salon <a href="tel:8172810262">(817-281-0262)</a> and
-                        ask for {stylistFirstName}.
+                        To book an appointment, please call the salon{" "}
+                        <a
+                            className="text-gold"
+                            href="tel:8172810262"
+                        >
+                            (817-281-0262)
+                        </a>{" "}
+                        and ask for <span className="text-gold">{stylistFirstName}</span>.
                     </p>
                 </CardBody>
             </CardBody>
@@ -33,7 +39,13 @@ export const AppointmentsCard: React.FC<AppointmentsCardProps> = ({ stylist }) =
                 <CardBody className="flex justify-center items-center text-light font-serif text-center text-[24px] w-[75%]">
                     <p>
                         Prices vary by appointment and service. For more information on pricing, call the salon{" "}
-                        <a href="tel:8172810262">(817-281-0262)</a> and ask for {stylistFirstName}.
+                        <a
+                            className="text-gold"
+                            href="tel:8172810262"
+                        >
+                            (817-281-0262)
+                        </a>{" "}
+                        and ask for <span className="text-gold">{stylistFirstName}</span>.
                     </p>
                 </CardBody>
             </CardBody>

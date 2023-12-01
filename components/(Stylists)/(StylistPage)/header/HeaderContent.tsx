@@ -25,7 +25,7 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ stylist }) => {
             className="absolute flex items-center w-[50%] h-full"
         >
             <div className="py-[50px] px-[25px] mx-[50px] h-fit max-h-[80%] flex flex-col items-center bg-green bg-opacity-50 backdrop-filter backdrop-blur-2xl shadow-3xl rounded-[25px] overflow-hidden">
-                <div className="flex flex-col items-center justify-center text-light font-northwell 2xl:text-[60px]">
+                <div className="flex flex-col items-center justify-center text-light font-northwell text-[60px]">
                     {stylist.name}
                 </div>
                 <Divider className="my-[25px] w-[90%] bg-light/50" />

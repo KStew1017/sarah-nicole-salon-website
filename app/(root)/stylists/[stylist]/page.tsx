@@ -7,6 +7,8 @@ import tailwindCustomColors from "@/utlis/customColors";
 import { StylistHeader } from "@/components/(Stylists)/(StylistPage)/header/HeaderSection";
 import { ServicesSection } from "@/components/(Stylists)/(StylistPage)/services/ServicesSection";
 import { AppointmentsSection } from "@/components/(Stylists)/(StylistPage)/appointments/AppointmentsSection";
+import { ResultsSection } from "@/components/(Stylists)/(StylistPage)/results/ResultsSection";
+import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 
 export default function StylistPage({ params }: { params: { stylist: string } }) {
     const stylists = siteContent.stylists;
@@ -37,8 +39,15 @@ export default function StylistPage({ params }: { params: { stylist: string } })
     } else {
         return (
             <>
+                <BackgroundIcons
+                    rows={8}
+                    icon1={stylist.icons[0]}
+                    icon2={stylist.icons[1]}
+                    icon3={stylist.icons[2]}
+                />
                 <StylistHeader stylist={stylist} />
                 <ServicesSection stylist={stylist} />
+                <ResultsSection stylist={stylist} />
                 <AppointmentsSection stylist={stylist} />
             </>
         );

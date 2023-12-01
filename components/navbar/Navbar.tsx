@@ -24,7 +24,6 @@ export const Navbar: React.FC = () => {
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 
     const currentPath = usePathname();
-    console.log(currentPath);
 
     return (
         <NextUINavbar

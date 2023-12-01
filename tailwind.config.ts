@@ -17,13 +17,54 @@ module.exports = {
                 light: "#f8f0eb",
                 green: "#013220",
                 blue: "#1D363A",
-                gold: "#C3AC3C"
+                gold: "#C3AC3C",
             },
             transitionTimingFunction: {
                 "s-curve": "cubic-bezier(0.075, 0.82, 0.165, 1)",
             },
             boxShadow: {
                 "3xl": "0px 0px 35px 20px rgba(0,0,0,0.1)",
+            },
+            borderRadius: {
+                "25": "25px",
+                "50": "50px",
+            },
+            animation: {
+                "gradient-x": "gradient-x 2.5s ease infinite",
+                "gradient-y": "gradient-y 2.5s ease infinite",
+                "gradient-xy": "gradient-xy 2.5s ease infinite",
+            },
+            keyframes: {
+                "gradient-y": {
+                    "0%, 100%": {
+                        "background-size": "400% 400%",
+                        "background-position": "center top",
+                    },
+                    "50%": {
+                        "background-size": "200% 200%",
+                        "background-position": "center center",
+                    },
+                },
+                "gradient-x": {
+                    "0%, 100%": {
+                        "background-size": "200% 200%",
+                        "background-position": "left center",
+                    },
+                    "50%": {
+                        "background-size": "200% 200%",
+                        "background-position": "right center",
+                    },
+                },
+                "gradient-xy": {
+                    "0%, 100%": {
+                        "background-size": "400% 400%",
+                        "background-position": "left center",
+                    },
+                    "50%": {
+                        "background-size": "200% 200%",
+                        "background-position": "right center",
+                    },
+                },
             },
         },
         fontFamily: {
