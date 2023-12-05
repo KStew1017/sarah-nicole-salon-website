@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
 import tailwindCustomColors from "@/utlis/customColors";
-import { motion } from "framer-motion";
-import { Reveal } from "@/utlis/reveal";
 
 interface BackgroundIconsRowProps {
     row: number;
@@ -19,16 +17,16 @@ export const BackgroundIconsRow: React.FC<BackgroundIconsRowProps> = ({ row, row
     const [scrollPosition, setScrollPosition] = useState(0);
     const iconRotateFactor = Array(rows).fill([0.1, 0.18, 0.12, 0.08, 0.04, 0.1, 0.18, 0.12, 0.08, 0.07]);
     const iconTranslateYFactors = [
-        [0.85, 0.65, 0.9, 0.7, 0.9, 0.7],
-        [0.8, 0.6, 0.85, 0.65, 0.85, 0.65],
-        [0.75, 0.55, 0.8, 0.6, 0.8, 0.6],
-        [0.7, 0.5, 0.75, 0.55, 0.75, 0.55],
-        [0.65, 0.45, 0.7, 0.5, 0.7, 0.5],
-        [0.6, 0.4, 0.65, 0.45, 0.64, 0.5],
-        [0.5, 0.37, 0.6, 0.4, 0.6, 0.4],
-        [0.4, 0.3, 0.5, 0.33, 0.5, 0.37],
-        [0.33, 0.22, 0.37, 0.3, 0.4, 0.25],
-        [0.23, 0.18, 0.3, 0.25, 0.31, 0.16],
+        [0.85, 0.65, 0.90, 0.70, 0.90, 0.70],
+    [0.80, 0.60, 0.85, 0.65, 0.85, 0.65],
+    [0.75, 0.55, 0.80, 0.60, 0.80, 0.60],
+    [0.70, 0.50, 0.75, 0.55, 0.75, 0.55],
+    [0.65, 0.45, 0.70, 0.50, 0.70, 0.50],
+    [0.60, 0.40, 0.65, 0.45, 0.64, 0.50],
+    [0.50, 0.37, 0.60, 0.40, 0.60, 0.40],
+    [0.40, 0.30, 0.50, 0.33, 0.50, 0.37],
+    [0.33, 0.22, 0.37, 0.30, 0.40, 0.25],
+    [0.23, 0.18, 0.30, 0.25, 0.31, 0.16],
     ];
 
     const generateIconsArray = (icon1: IconDefinition, icon2: IconDefinition, icon3: IconDefinition) => {

@@ -34,8 +34,9 @@
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        "app/api/s3-get/becki/route.ts"
-, "models/Stylist.js"    ],
+        "app/api/s3-get/becki/route.ts",
+        "models/Stylist.js"
+    ],
     "exclude": [
         "node_modules"
     ]

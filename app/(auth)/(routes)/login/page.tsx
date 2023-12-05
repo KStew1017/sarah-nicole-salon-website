@@ -25,7 +25,7 @@ export default function Auth() {
                         
                     },
                 }}
-                afterSignInUrl={"/"}
+                afterSignInUrl={"/dashboard"}
             />
         </div>
     );

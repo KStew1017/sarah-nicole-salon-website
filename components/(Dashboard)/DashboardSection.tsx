@@ -1,17 +1,36 @@
-import { ProfileBackgroundIcons } from "./ProfileBackgroundIcons";
-import { ProfileBio } from "./ProfileBio";
-import { ProfilePaymentMethods } from "./ProfilePaymentMethods";
-import { ProfileQuote } from "./ProfileQuote";
-import { ProfileServices } from "./ProfileServices";
+import { ProfileContent } from "./ProfileContent";
+import { ProfileUserButton } from "./ProfileUserButton";
 
-export const DashboardSection: React.FC = () => {
+interface DashboardSectionProps {
+    name: string;
+    firstName: string;
+    quote: string;
+    bio: string;
+    services: string[];
+    paymentMethods: string[];
+    icons: string[];
+}
+
+export const DashboardSection: React.FC<DashboardSectionProps> = ({
+    name,
+    firstName,
+    quote,
+    bio,
+    services,
+    paymentMethods,
+    icons,
+}) => {
     return (
         <>
-            <ProfileQuote />
-            <ProfileBio />
-            <ProfileServices />
-            <ProfilePaymentMethods />
-            <ProfileBackgroundIcons />
+            <ProfileUserButton firstName={firstName} />
+            <ProfileContent
+                name={name}
+                quote={quote}
+                bio={bio}
+                services={services}
+                paymentMethods={paymentMethods}
+                icons={icons}
+            />
         </>
-    )
+    );
 };

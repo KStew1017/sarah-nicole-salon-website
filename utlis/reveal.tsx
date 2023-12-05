@@ -17,9 +17,10 @@ interface Props {
     delay?: number;
     styling?: string;
     isMobile?: boolean;
+    motionDivStyling?: string;
 }
 
-export const Reveal = ({ children, hiddenVariant, visibleVariant = "none", styling, delay, isMobile }: Props) => {
+export const Reveal = ({ children, hiddenVariant, visibleVariant = "none", styling, delay, isMobile, motionDivStyling }: Props) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     const controls = useAnimation();
@@ -94,6 +95,7 @@ export const Reveal = ({ children, hiddenVariant, visibleVariant = "none", styli
                     duration: 1.5,
                     ease: [0.075, 0.82, 0.165, 1],
                 }}
+                className={motionDivStyling}
             >
                 {children}
             </motion.div>

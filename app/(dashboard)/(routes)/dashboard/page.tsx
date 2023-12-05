@@ -2,7 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
-import { UserButton } from "@clerk/nextjs";
+import Loading from "@/components/layout/Loading";
+import { Reveal } from "@/utlis/reveal";
+import { DashboardSection } from "@/components/(Dashboard)/DashboardSection";
+import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
+import { library, findIconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { IconName, fas } from "@fortawesome/free-solid-svg-icons";
 
 interface Stylist {
     id: string;
@@ -16,13 +21,12 @@ interface Stylist {
 
 export default function Dashboard() {
     const currentUser = useUser();
-
     const [stylists, setStylists] = useState<Stylist[]>([]);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const fetchStylists = async () => {
         try {
             const response = await fetch("/api/db-get");
-
             const data = await response.json();
             setStylists(data.stylists);
         } catch (error) {
@@ -32,8 +36,8 @@ export default function Dashboard() {
 
     useEffect(() => {
         fetchStylists();
+        setIsLoaded(true);
     }, []);
-
 
     const stylist = stylists.filter((stylist) => stylist.name === currentUser.user?.fullName);
     const name = stylist[0]?.name;
@@ -42,65 +46,49 @@ export default function Dashboard() {
     const bio = stylist[0]?.bio;
     const services = stylist[0]?.services;
     const paymentMethods = stylist[0]?.paymentMethods;
-    const icons = stylist[0]?.icons;
+    const iconsList = stylist[0]?.icons;
 
+    library.add(fas);
+
+    const getIconData = (i: number) => {
+        const iconName = iconsList?.[i];
+        const iconNameSlice = iconName?.slice(2).toLowerCase();
+        return findIconDefinition({ prefix: "fas", iconName: iconNameSlice as IconName });
+    };
+
+    const icon1 = getIconData(0);
+    const icon2 = getIconData(1);
+    const icon3 = getIconData(2);
+
+    if (!isLoaded) {
+        return <Loading />;
+    }
     return (
-        <div className="flex flex-col items-center relative max-w-[1250px] justify-center mx-auto my-[100px]">
-            <div className="relative group">
-                <img
-                    src={`/images/${firstName}/${firstName}-headshot.jpeg`}
-                    alt="Angela"
-                    className="w-[300px] h-[300px] rounded-full border-2 border-gold transition ease-s-curve group-hover:drop-shadow-xl group-hover:scale-105 group-hover:translate-y-[-10px] object-cover absolute"
-                />
-                <UserButton
-                    afterSignOutUrl="/"
-                    appearance={{
-                        elements: {
-                            userButtonBox: "w-[300px] h-[300px] opacity-0 -z-10",
-                            userButtonTrigger: "focus:shadow-none",
-                            userButtonAvatarBox:
-                                "w-[300px] h-[300px] rounded-full transition ease-s-curve group-hover:drop-shadow-xl group-hover:scale-105 group-hover:translate-y-[-10px]",
-                            userButtonPopoverCard: "bg-tan-100 border-2 border-gold font-sans",
-                            userPreviewMainIdentifier: "text-grey text-[18px] font-bold",
-                            userPreviewSecondaryIdentifier: "text-grey/50",
-                            userButtonPopoverActionButton: "hover:bg-tan-200",
-                            userButtonPopoverActionButtonText: "text-[16px]",
-                            userButtonPopoverActionButtonIcon: "w-[20px] h-[20px]",
-                            userButtonPopoverFooter: "hidden",
-                        },
-                    }}
-                />
-            </div>
-            <div className="flex flex-col items-center">
-                <h1 className="text-[60px] font-northwell text-green-600 text-center mt-[100px]">{name}</h1>
-                <p className="text-[24px] font-serif text-green-600 text-center mt-[100px]">{quote}</p>
-                <p className="text-[24px] font-serif text-green-600 text-center mt-[100px]">{bio}</p>
-                <div className="flex flex-col items-center mt-[100px]">
-                    <h2 className="text-[50px] font-northwell text-green-600 text-center">Services</h2>
-                    <ul className="text-[24px] font-serif text-green-600 text-center">
-                        {services?.map((service) => (
-                            <li key={service}>{service}</li>
-                        ))}
-                    </ul>
+        <>
+            <Reveal
+                hiddenVariant="hiddenFade"
+                visibleVariant="visibleFade"
+                delay={1}
+            >
+                <div className="flex flex-col items-center relative max-w-[1250px] justify-center mx-auto my-[100px]">
+                    <DashboardSection
+                        name={name}
+                        firstName={firstName}
+                        quote={quote}
+                        bio={bio}
+                        services={services}
+                        paymentMethods={paymentMethods}
+                        icons={iconsList}
+                    />
                 </div>
-                <div className="flex flex-col items-center mt-[100px]">
-                    <h2 className="text-[50px] font-northwell text-green-600 text-center">Payment Methods</h2>
-                    <ul className="text-[24px] font-serif text-green-600 text-center">
-                        {paymentMethods?.map((paymentMethod) => (
-                            <li key={paymentMethod}>{paymentMethod}</li>
-                        ))}
-                    </ul>
-                </div>
-                <div className="flex flex-col items-center mt-[100px]">
-                    <h2 className="text-[50px] font-northwell text-green-600 text-center">Background Icons</h2>
-                    <ul className="text-[24px] font-serif text-green-600 text-center">
-                        {icons?.map((icon) => (
-                            <li key={icon}>{icon}</li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-        </div>
+            </Reveal>
+            <BackgroundIcons
+                rows={6}
+                icon1={icon1}
+                icon2={icon2}
+                icon3={icon3}
+            />
+        </>
     );
 }
 

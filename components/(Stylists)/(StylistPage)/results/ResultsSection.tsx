@@ -12,7 +12,7 @@ interface ResultsSectionProps {
 
 export const ResultsSection: React.FC<ResultsSectionProps> = ({ stylist }) => {
     const [images, setImages] = useState([]);
-    const [displayCount, setDisplayCount] = useState(4);
+    const [displayCount, setDisplayCount] = useState(9);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const [isLoaded, setIsLoaded] = useState(new Array(images.length).fill(false));

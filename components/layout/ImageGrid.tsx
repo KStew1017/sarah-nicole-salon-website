@@ -25,7 +25,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({
 }) => {
 
     return (
-        <div className={`grid ${gallery ? "grid-cols-3" : "grid-cols-2"} grid-flow-row gap-[100px]`}>
+        <div className="grid grid-cols-3 grid-flow-row gap-[100px]">
             {images &&
                 images
                     .filter((_, i) => i !== 0)
