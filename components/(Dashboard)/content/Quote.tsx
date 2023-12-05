@@ -11,26 +11,25 @@ export const Quote: React.FC<QuoteProps> = ({ quote }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [isTooLong, setIsTooLong] = useState(false);
 
-    
     useEffect(() => {
         setTextState(quote);
         setEditedText(quote);
     }, [quote]);
-    
+
     const handleEditToggle = () => {
         setIsEditing(true);
     };
-    
+
     const handleQuoteValueChange = (value: string) => {
         setEditedText(value);
-        
+
         if (value?.length <= 200) {
             setIsTooLong(false);
         } else {
             setIsTooLong(true);
         }
     };
-    
+
     const handleSave = () => {
         if (isTooLong) {
             alert("Must be 200 characters or less.");
@@ -39,7 +38,7 @@ export const Quote: React.FC<QuoteProps> = ({ quote }) => {
             setIsEditing(false);
         }
     };
-    
+
     const handleCancel = () => {
         setTextState(textState);
         setEditedText(textState);
@@ -47,7 +46,8 @@ export const Quote: React.FC<QuoteProps> = ({ quote }) => {
     };
 
     return (
-        <div className="bg-light shadow-3xl my-[50px] p-[50px] rounded-[50px] w-full flex items-center justify-center">
+        <div className="bg-light shadow-3xl my-[50px] p-[50px] rounded-[50px] w-full flex flex-col items-center justify-center">
+            <h2 className="text-[60px] font-northwell text-green text-center mb-[25px]">Quote</h2>
             <TextEditTemplate
                 isEditing={isEditing}
                 textState={textState}
