@@ -4,9 +4,15 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Modal, ModalContent, Skeleton, useDisclosure } from "@nextui-org/react";
 import { Heading } from "../layout/Heading";
+import { Reveal } from "@/utlis/reveal";
+
+interface ImagesProps {
+    url: string;
+    folderName: string;
+}
 
 export const GallerySection: React.FC = () => {
-    const [images, setImages] = useState([]);
+    const [images, setImages] = useState<ImagesProps[]>([]);
     const [displayCount, setDisplayCount] = useState(9);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -26,6 +32,8 @@ export const GallerySection: React.FC = () => {
         fetchImages();
     }, []);
 
+    console.log(images)
+
     const handleImageClick = (index: any) => {
         setSelectedImageIndex(index);
         onOpen();
@@ -33,12 +41,17 @@ export const GallerySection: React.FC = () => {
 
     return (
         <div className="flex flex-col items-center relative max-w-[1250px] justify-center mx-auto my-[100px]">
-            <Heading
-                title="Gallery"
-                decoration="e"
-                font="northwell"
-                textColor="green"
-            />
+            <Reveal
+                hiddenVariant="hiddenXPos"
+                visibleVariant="visibleXPos"
+            >
+                <Heading
+                    title="Gallery"
+                    decoration="e"
+                    font="northwell"
+                    textColor="green"
+                />
+            </Reveal>
             <div className="grid grid-cols-3 grid-flow-row gap-[100px]">
                 {images &&
                     images
@@ -48,14 +61,14 @@ export const GallerySection: React.FC = () => {
                             <div
                                 key={i}
                                 onClick={() => handleImageClick(i)}
-                                className="shadow-3xl rounded-[50px]"
+                                className="relative group"
                             >
                                 <Skeleton
                                     isLoaded={isLoaded[i]}
                                     className="rounded-[50px] bg-gradient-to-tr from-green via-blue to-green animate-gradient-xy"
                                 >
                                     <Image
-                                        src={url}
+                                        src={url.url}
                                         width={400}
                                         height={400}
                                         alt={`result ${i + 1}`}
@@ -69,6 +82,14 @@ export const GallerySection: React.FC = () => {
                                         }
                                     />
                                 </Skeleton>
+                                <div className="absolute inset-0 ">
+                                    <div className="flex flex-col items-center justify-end h-full text-white">
+                                        <p className="font-serif text-light text-[36px] translate-y-[-25px] z-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            {url.folderName.split("-")[0][0].toUpperCase() + url.folderName.split("-")[0].slice(1)}
+                                        </p>
+                                        <div className="bg-green/25 w-full h-[25%] absolute z-10 rounded-b-[50px] backdrop-filter backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    </div>
+                                </div>
                             </div>
                         ))}
             </div>
@@ -97,7 +118,7 @@ export const GallerySection: React.FC = () => {
                             className="rounded-[50px]"
                         >
                             <Image
-                                src={images[selectedImageIndex + 1]}
+                                src={images[selectedImageIndex + 1].url}
                                 alt={`result ${selectedImageIndex + 1}`}
                                 width={500}
                                 height={1000}
