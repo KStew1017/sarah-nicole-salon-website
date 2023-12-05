@@ -1,0 +1,75 @@
+import Image from "next/image";
+import { Skeleton } from "@nextui-org/react";
+
+interface ImagesProps {
+    url: string;
+    folderName: string;
+}
+
+interface ImageGridProps {
+    images: ImagesProps[];
+    onImageClick: (index: number) => void;
+    isLoaded: boolean[];
+    setIsLoaded: React.Dispatch<React.SetStateAction<boolean[]>>;
+    displayCount: number;
+    gallery?: boolean;
+}
+
+const ImageGrid: React.FC<ImageGridProps> = ({
+    images,
+    onImageClick,
+    isLoaded,
+    setIsLoaded,
+    gallery,
+    displayCount,
+}) => {
+
+    return (
+        <div className={`grid ${gallery ? "grid-cols-3" : "grid-cols-2"} grid-flow-row gap-[100px]`}>
+            {images &&
+                images
+                    .filter((_, i) => i !== 0)
+                    .slice(0, displayCount)
+                    .map((url, i) => (
+                        <div
+                            key={i}
+                            onClick={() => onImageClick(i)}
+                            className="relative group"
+                        >
+                            <Skeleton
+                                isLoaded={isLoaded[i]}
+                                className="rounded-[50px] bg-gradient-to-tr from-green via-blue to-green animate-gradient-xy"
+                            >
+                                <Image
+                                    src={typeof url === 'string' ? url : url.url}
+                                    width={400}
+                                    height={400}
+                                    alt={`result ${i + 1}`}
+                                    className="h-auto w-auto object-cover rounded-[50px] shadow-3xl hover:scale-105 transition-transform ease-s-curve aspect-square"
+                                    onLoad={() =>
+                                        setIsLoaded((prevState) => {
+                                            const newState = [...prevState];
+                                            newState[i] = true;
+                                            return newState;
+                                        })
+                                    }
+                                />
+                            </Skeleton>
+                            {gallery ? (
+                                <div className="absolute inset-0 ">
+                                    <div className="flex flex-col items-center justify-end h-full text-white">
+                                        <p className="font-serif text-light text-[36px] translate-y-[-25px] z-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            {url.folderName.split("-")[0][0].toUpperCase() +
+                                                url.folderName.split("-")[0].slice(1)}
+                                        </p>
+                                        <div className="bg-green/25 w-full h-[25%] absolute z-10 rounded-b-[50px] backdrop-filter backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    </div>
+                                </div>
+                            ) : null}
+                        </div>
+                    ))}
+        </div>
+    );
+};
+
+export default ImageGrid;

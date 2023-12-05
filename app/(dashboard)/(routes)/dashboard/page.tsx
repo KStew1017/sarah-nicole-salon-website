@@ -22,7 +22,7 @@ export default function Dashboard() {
     const fetchStylists = async () => {
         try {
             const response = await fetch("/api/db-get");
-            console.log(stylists);
+
             const data = await response.json();
             setStylists(data.stylists);
         } catch (error) {

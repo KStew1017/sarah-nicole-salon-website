@@ -31,27 +31,33 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
 
         const fileObjects = data.Contents || [];
 
-        const urls = await Promise.all(
-            fileObjects.map(async (file) => {
-                if (!file.Key) {
-                    throw new Error("File object does not have a Key property");
-                }
-            
-                const { Key, Size, LastModified } = file;
-            
-                const getCommand = new GetObjectCommand({
-                    Bucket: bucketName,
-                    Key,
-                });
-            
-                const url = await getSignedUrl(s3Client, getCommand, { expiresIn: 3600 });
-            
-                // Extract folder name from the key
-                const folderName = Key.split("/")[0]; // Assuming folders are the first part of the key
-            
-                return { url, folderName, size: Size, lastModified: LastModified };
-            })
-        );
+        const urls = (
+            await Promise.all(
+                fileObjects.map(async (file) => {
+                    if (!file.Key) {
+                        throw new Error("File object does not have a Key property");
+                    }
+
+                    // Skip directories
+                    if (file.Key.endsWith("/")) {
+                        return null;
+                    }
+
+                    const { Key, Size, LastModified } = file;
+
+                    const getCommand = new GetObjectCommand({
+                        Bucket: bucketName,
+                        Key,
+                    });
+
+                    const url = await getSignedUrl(s3Client, getCommand, { expiresIn: 3600 });
+
+                    const folderName = Key.split("/")[0];
+
+                    return { url, folderName, size: Size, lastModified: LastModified };
+                })
+            )
+        ).filter(Boolean);
 
         const randomizedUrls = urls.sort(() => Math.random() - 0.5);
 

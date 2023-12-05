@@ -1,0 +1,58 @@
+import { Modal, ModalContent, Skeleton } from "@nextui-org/react";
+import Image from "next/image";
+
+interface ImagesProps {
+    url: string;
+    folderName: string;
+}
+
+interface ImageModalProps {
+    isOpen: boolean;
+    onOpenChange: () => void;
+    selectedImageIndex: number | null;
+    images: ImagesProps[];
+    isLoaded: boolean[];
+    gallery?: boolean;
+}
+
+const getImageSrc = (image: ImagesProps | string): string => {
+    if (typeof image === "string") {
+        return image;
+    } else {
+        return image.url;
+    }
+};
+
+const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onOpenChange, selectedImageIndex, images, isLoaded }) => {
+    return (
+        <Modal
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
+            backdrop="blur"
+            classNames={{
+                base: "max-w-[75vh]",
+                closeButton:
+                    "text-light hover:bg-gold absolute left-0 right-0 bottom-0 top-auto mx-auto translate-y-[-25px] w-[50px] h-[50px] justify-center items-center flex hover:scale-105 transition-all ease-s-curve text-[24px] z-50",
+            }}
+        >
+            <ModalContent className="rounded-[50px]">
+                {selectedImageIndex !== null && (
+                    <Skeleton
+                        isLoaded={isLoaded[selectedImageIndex]}
+                        className="rounded-[50px]"
+                    >
+                        <Image
+                            src={getImageSrc(images[selectedImageIndex + 1])}
+                            alt={`result ${selectedImageIndex + 1}`}
+                            width={500}
+                            height={1000}
+                            className="h-[75vh] w-full object-cover shadow-3xl"
+                        />
+                    </Skeleton>
+                )}
+            </ModalContent>
+        </Modal>
+    );
+};
+
+export default ImageModal;
