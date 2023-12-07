@@ -8,7 +8,6 @@ interface DashboardSectionProps {
     bio: string;
     services: string[];
     paymentMethods: string[];
-    icons: string[];
 }
 
 export const DashboardSection: React.FC<DashboardSectionProps> = ({
@@ -18,7 +17,6 @@ export const DashboardSection: React.FC<DashboardSectionProps> = ({
     bio,
     services,
     paymentMethods,
-    icons,
 }) => {
     return (
         <>
@@ -29,7 +27,6 @@ export const DashboardSection: React.FC<DashboardSectionProps> = ({
                 bio={bio}
                 services={services}
                 paymentMethods={paymentMethods}
-                icons={icons}
             />
         </>
     );

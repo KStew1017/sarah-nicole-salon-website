@@ -26,8 +26,8 @@ export const TextEditTemplate: React.FC<TextEditTemplateProps> = ({
     return (
         <>
             {isEditing ? (
-                <div className="h-full w-full flex flex-col items-center justify-center gap-[50px]">
-                    <div className="h-full w-full flex flex-col">
+                <div className="h-full min-w-full flex flex-col items-center justify-center gap-[50px]">
+                    <div className="h-full min-w-full flex flex-col">
                         <Textarea
                             width="100%"
                             height="100%"

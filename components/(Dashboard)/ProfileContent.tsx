@@ -1,5 +1,4 @@
 import { Bio } from "./content/Bio";
-import { Icons } from "./content/Icons";
 import { PaymentMethods } from "./content/PaymentMethods";
 import { Quote } from "./content/Quote";
 import { Services } from "./content/Services";
@@ -10,7 +9,6 @@ interface ProfileContentProps {
     bio: string;
     services: string[];
     paymentMethods: string[];
-    icons: string[];
 }
 
 export const ProfileContent: React.FC<ProfileContentProps> = ({
@@ -19,7 +17,6 @@ export const ProfileContent: React.FC<ProfileContentProps> = ({
     bio,
     services,
     paymentMethods,
-    icons,
 }) => {
     return (
         <div className="flex flex-col items-center">
@@ -28,7 +25,6 @@ export const ProfileContent: React.FC<ProfileContentProps> = ({
             <Bio bio={bio} />
             <Services services={services} />
             <PaymentMethods paymentMethods={paymentMethods} />
-            <Icons icons={icons} />
         </div>
     );
 };

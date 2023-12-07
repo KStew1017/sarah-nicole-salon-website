@@ -32,7 +32,7 @@ export const MissionStatement: React.FC = () => {
                         welcoming environment that will make you feel right at home.
                     </p>
                 </CardBody>
-                <Divider className="m-[20px]" />
+                <Divider />
                 <CardFooter className="flex-col">
                     <p className="text-[18px] font-serif text-center mx-auto">Call us to book your appointment:</p>
                     <Link

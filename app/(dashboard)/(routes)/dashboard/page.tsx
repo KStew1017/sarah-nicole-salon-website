@@ -6,8 +6,8 @@ import Loading from "@/components/layout/Loading";
 import { Reveal } from "@/utlis/reveal";
 import { DashboardSection } from "@/components/(Dashboard)/DashboardSection";
 import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
-import { library, findIconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { IconName, fas } from "@fortawesome/free-solid-svg-icons";
+import { siteContent } from "@/configs/siteContent";
+import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-svg-icons";
 
 interface Stylist {
     id: string;
@@ -34,11 +34,6 @@ export default function Dashboard() {
         }
     };
 
-    useEffect(() => {
-        fetchStylists();
-        setIsLoaded(true);
-    }, []);
-
     const stylist = stylists.filter((stylist) => stylist.name === currentUser.user?.fullName);
     const name = stylist[0]?.name;
     const firstName = stylist[0]?.name.split(" ")[0];
@@ -46,19 +41,43 @@ export default function Dashboard() {
     const bio = stylist[0]?.bio;
     const services = stylist[0]?.services;
     const paymentMethods = stylist[0]?.paymentMethods;
-    const iconsList = stylist[0]?.icons;
 
-    library.add(fas);
+    useEffect(() => {
+        fetchStylists();
+        setIsLoaded(true);
+    }, []);
 
-    const getIconData = (i: number) => {
-        const iconName = iconsList?.[i];
-        const iconNameSlice = iconName?.slice(2).toLowerCase();
-        return findIconDefinition({ prefix: "fas", iconName: iconNameSlice as IconName });
-    };
+    let icon1;
+    let icon2;
+    let icon3;
 
-    const icon1 = getIconData(0);
-    const icon2 = getIconData(1);
-    const icon3 = getIconData(2);
+    switch (currentUser?.user?.username) {
+        case "angelacollins":
+            icon1 = siteContent.stylists[0].icons[0];
+            icon2 = siteContent.stylists[0].icons[1];
+            icon3 = siteContent.stylists[0].icons[2];
+            break;
+        case "beckihutchison":
+            icon1 = siteContent.stylists[1].icons[0];
+            icon2 = siteContent.stylists[1].icons[1];
+            icon3 = siteContent.stylists[1].icons[2];
+            break;
+        case "teresacampbell":
+            icon1 = siteContent.stylists[2].icons[0];
+            icon2 = siteContent.stylists[2].icons[1];
+            icon3 = siteContent.stylists[2].icons[2];
+            break;
+        case "mistyrecord":
+            icon1 = siteContent.stylists[3].icons[0];
+            icon2 = siteContent.stylists[3].icons[1];
+            icon3 = siteContent.stylists[3].icons[2];
+            break;
+        default:
+            icon1 = faScissors;
+            icon2 = faSpa;
+            icon3 = faSprayCanSparkles;
+            break;
+    }
 
     if (!isLoaded) {
         return <Loading />;
@@ -78,7 +97,6 @@ export default function Dashboard() {
                         bio={bio}
                         services={services}
                         paymentMethods={paymentMethods}
-                        icons={iconsList}
                     />
                 </div>
             </Reveal>

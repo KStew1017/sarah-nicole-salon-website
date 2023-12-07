@@ -47,7 +47,7 @@ export const Bio: React.FC<BioProps> = ({ bio }) => {
 
     return (
         <div className="bg-light shadow-3xl my-[50px] p-[50px] rounded-[50px] w-full flex flex-col items-center justify-center">
-            <h2 className="text-[60px] font-northwell text-green text-center mb-[25px]">Bio</h2>
+            <h2 className="text-[60px] font-northwell text-green text-center mb-[25px]">Profile Bio</h2>
             <TextEditTemplate
                 isEditing={isEditing}
                 textState={textState}
