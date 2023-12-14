@@ -32,10 +32,10 @@ export const ProfileContent: React.FC<ProfileContentProps> = ({ name, quote, bio
                     </Button>
                 </a>
             </div>
-            <Quote quote={quote} />
-            <Bio bio={bio} />
-            <Services services={services} />
-            <PaymentMethods paymentMethods={paymentMethods} />
+            <Quote quote={quote} name={name} />
+            <Bio bio={bio} name={name} />
+            <Services services={services} name={name}  />
+            <PaymentMethods paymentMethods={paymentMethods} name={name} />
             <ImageUpload name={name} />
         </div>
     );
