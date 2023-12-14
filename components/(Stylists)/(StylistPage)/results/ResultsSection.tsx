@@ -1,8 +1,7 @@
 import { Heading } from "@/components/layout/Heading";
 import { StylistType } from "@/utlis/types";
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import { Modal, ModalContent, Skeleton, useDisclosure } from "@nextui-org/react";
+import { useDisclosure } from "@nextui-org/react";
 import ImageGrid from "@/components/layout/ImageGrid";
 import ImageModal from "@/components/layout/ImageModal";
 
