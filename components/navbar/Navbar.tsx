@@ -172,17 +172,17 @@ export const Navbar: React.FC = () => {
                 </NavbarContent>
             </NextUINavbar>
             {currentUser.isSignedIn && currentUser.user !== null ? (
-                <div className="sticky top-[100px] z-50 bg-green w-full h-[100px] bg-opacity-75 backdrop-filter backdrop-blur-lg">
+                <div className="sticky top-[100px] z-50 bg-green w-full h-[50px] bg-opacity-75 backdrop-filter backdrop-blur-lg">
                     <div className="flex items-center justify-center h-full gap-[10px]">
-                        <p className="text-light text-[24px] font-serif ">Welcome, {currentUser.user.firstName}!</p>
+                        <p className="text-light text-[20px] font-serif ">Welcome, {currentUser.user.firstName}!</p>
                         <div className="inline">
-                            <span className="text-light text-[24px] font-serif">Visit Your Dashboard </span>
+                            <span className="text-light text-[20px] font-serif">Visit Your Dashboard </span>
                             <Link href={`/dashboard`}>
                                 <Button
                                     radius="full"
-                                    className={`font-serif text-[24px] text-light bg-gold hover:shadow-lg hover:scale-105 data-[hover=true]:opacity-100`}
+                                    className={`font-serif text-[20px] text-light bg-gold hover:shadow-lg hover:scale-105 data-[hover=true]:opacity-100 h-[30px]`}
                                 >
-                                    <p className="p-[10px] drop-shadow-md">Here</p>
+                                    <p className=" drop-shadow-md">Here</p>
                                 </Button>
                             </Link>
                         </div>

@@ -1,8 +1,37 @@
+"use client";
+
 import { StylistsSection } from "@/components/(Stylists)/StylistsSection";
 import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 
 export default function Stylists() {
+
+    interface stylistsProps {
+        _id: string;
+        name: string;
+        quote: string;
+        bio: string;
+        payamentMethods: string[];
+        services: string[];
+        icons: string[];
+    }
+
+    const [stylists, setStylists] = useState<stylistsProps[]>([]);
+
+    useEffect(() => {
+        const getStylists = async () => {
+            try {
+                const res = await fetch("/api/db-get");
+                const data = await res.json();
+                setStylists(data.stylists);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getStylists();
+    }, []);
+    
     return (
         <>
             <BackgroundIcons
@@ -11,7 +40,7 @@ export default function Stylists() {
                 icon2={faSpa}
                 icon3={faScissors}
             />
-            <StylistsSection />
+            <StylistsSection stylists={stylists} />
         </>
     );
 }

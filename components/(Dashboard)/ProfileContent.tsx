@@ -19,7 +19,6 @@ export const ProfileContent: React.FC<ProfileContentProps> = ({ name, quote, bio
     return (
         <div className="flex flex-col items-center">
             <h1 className="text-[100px] font-northwell text-green text-center my-[50px]">{name}</h1>
-            <h1 className="text-[25px] font-serif text-green text-center">Go to:</h1>
             <div className="h-[100px] flex gap-[50px]">
                 <a href="/">
                     <Button className="hover:bg-tan hover:shadow-lg bg-green hover:border-2 hover:border-green hover:text-green text-light font-serif text-[30px] rounded-full p-[30px] w-[200px] m-[10px]">

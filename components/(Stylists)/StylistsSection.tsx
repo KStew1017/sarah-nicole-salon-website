@@ -3,9 +3,21 @@ import { OverviewCard } from "./OverviewCard";
 import { siteContent } from "@/configs/siteContent";
 import { Reveal } from "@/utlis/reveal";
 
-export const StylistsSection = () => {
-    const stylists = siteContent.stylists;
+interface stylistsProps {
+    _id: string;
+    name: string;
+    quote: string;
+    bio: string;
+    payamentMethods: string[];
+    services: string[];
+    icons: string[];
+}
 
+interface StylistsSectionProps {
+    stylists: stylistsProps[];
+}
+
+export const StylistsSection: React.FC<StylistsSectionProps> = ({ stylists }) => {
     return (
         <div className="max-w-[1250px] mx-auto">
             <Reveal

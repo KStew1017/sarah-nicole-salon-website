@@ -53,8 +53,6 @@ export const PaymentMethods: React.FC<PaymentMethodsProps> = ({ paymentMethods, 
         }, 3000);
     };
 
-    console.log(selected);
-
     const checkboxClassNames = {
         base: "flex flex-col items-center justify-center gap-[25px]",
         label: "font-serif text-[24px] text-green mr-2 text-center",

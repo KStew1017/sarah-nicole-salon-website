@@ -1,10 +1,9 @@
 import Stylist from "@/models/Stylist";
-import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: NextRequest) {
     try {
-        const stylists = await Stylist.find({});
+        const stylists = await Stylist.find();
         return NextResponse.json({ stylists });
     } catch (error) {
         return NextResponse.json({ error });

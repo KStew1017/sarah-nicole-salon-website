@@ -1,11 +1,26 @@
+"use client";
+
 import { Reveal } from "@/utlis/reveal";
 import { Heading } from "../../layout/Heading";
 import { Profile } from "./Profile";
-import { siteContent } from "@/configs/siteContent";
+import { useEffect, useState } from "react";
 
-export const MeetUsSection: React.FC = () => {
-    const stylists = siteContent.stylists;
 
+interface stylistsProps {
+    _id: string;
+    name: string;
+    quote: string;
+    bio: string;
+    payamentMethods: string[];
+    services: string[];
+    icons: string[];
+}
+
+interface MeetUsSectionProps {
+    stylists: stylistsProps[];
+}
+
+export const MeetUsSection: React.FC<MeetUsSectionProps> = ({ stylists }) => {
     return (
         <div className="max-w-[1250px] mx-auto">
             <Reveal
