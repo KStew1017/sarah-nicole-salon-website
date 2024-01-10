@@ -50,17 +50,17 @@ export const Carousel: React.FC = () => {
             initial={{ y: 200 }}
             animate={{ y: 0 }}
             transition={{ duration: 1.5, delay: 0.5, type: "spring" }}
-            className="keen-slider w-[calc(80%_-_1px)] h-fit text-light text-[56px] font-northwell text-center rounded-[50px] absolute right-0 shadow-3xl"
+            className="keen-slider lg:w-[calc(80%_-_1px)] w-full h-full lg:h-fit text-light text-[56px] font-northwell text-center lg:rounded-[50px] lg:absolute lg:right-0 lg:shadow-3xl"
         >
             {carouselImages.map((image) => (
                 <div
                     key={image.src}
-                    className="keen-slider__slide"
+                    className="keen-slider__slide "
                 >
                     <Image
                         src={image.src}
                         alt={image.alt}
-                        className="object-cover rounded-none h-[100%]"
+                        className="object-cover rounded-none lg:h-[100%]"
                     />
                 </div>
             ))}

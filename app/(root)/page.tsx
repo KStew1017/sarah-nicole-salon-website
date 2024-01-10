@@ -15,7 +15,7 @@ export default function Home() {
         name: string;
         quote: string;
         bio: string;
-        payamentMethods: string[];
+        paymentMethods: string[];
         services: string[];
         icons: string[];
     }
@@ -34,7 +34,7 @@ export default function Home() {
         };
         getStylists();
     }, []);
-    
+
     return (
         <>
             <BackgroundIcons

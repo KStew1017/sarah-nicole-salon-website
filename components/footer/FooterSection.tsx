@@ -12,29 +12,29 @@ export const FooterSection: React.FC = () => {
                 <a
                     rel="tag"
                     href="/"
-                    className="text-[64px] text-center text-light font-northwell"
+                    className="text-[38px] sm:text-[64px] text-center text-light font-northwell"
                 >
                     Sarah Nicole Salon
                 </a>
                 <div className="w-full h-10px border-light border-1 mb-[40px]" />
-                <div className="text-light text-[18px] flex items-center font-serif mb-[20px]">
+                <div className="text-light text-[18px] flex flex-col gap-2 items-center font-serif mb-[20px]">
                     <FontAwesomeIcon icon={faMap} />
                     <a
                         rel="noopener"
                         href="https://www.google.com/maps/place/Sarah+Nicole+Salon/@32.8373304,-97.2157799,17.75z/data=!4m6!3m5!1s0x864e78f082c76ca9:0x897c7a1637dd0464!8m2!3d32.8373795!4d-97.2147635!16s%2Fg%2F1thd269s"
                         target="_blank"
-                        className="ml-[8px] hover:underline "
+                        className="sm:ml-[8px] hover:underline text-center"
                     >
-                        : 5001 Davis Blvd, North Richland Hills, TX 76180
+                        5001 Davis Blvd, North Richland Hills, TX 76180
                     </a>
                 </div>
-                <div className="text-light text-[18px] flex items-center font-serif mb-[20px]">
+                <div className="text-light text-[18px] flex flex-col gap-2 items-center font-serif mb-[20px]">
                     <FontAwesomeIcon icon={faPhone} />
                     <a
                         href="tel:817-281-0262"
                         className="ml-[8px] hover:underline "
                     >
-                        : 817-281-0262
+                        817-281-0262
                     </a>
                 </div>
                 <div className="text-light text-[12px] flex items-center font-serif">© {year} Sarah Nicole Salon</div>

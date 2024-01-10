@@ -15,7 +15,6 @@ export const BackgroundIcons: React.FC<HomeBackgroundIconsProps> = ({ rows, icon
     return (
         <div
             style={{
-                display: "grid",
                 gridTemplateColumns: "repeat(6, 1fr)",
                 gridTemplateRows: "repeat(auto-fill, minmax(75px, 1fr))",
                 position: "fixed",
@@ -25,6 +24,7 @@ export const BackgroundIcons: React.FC<HomeBackgroundIconsProps> = ({ rows, icon
                 top: "100%",
                 zIndex: -1,
             }}
+            className="hidden lg:grid"
         >
             {Array(rows)
                 .fill(0)

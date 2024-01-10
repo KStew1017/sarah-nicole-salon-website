@@ -14,7 +14,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
 }) => {
     return (
         <Card
-            className="w-[60%] h-[400px] rounded-[50px] bg-gradient-to-bl from-green to-blue"
+            className="w-[90%] md:w-[75%] rounded-b-[50px] rounded-t-[0px] lg:w-[60%] lg:h-[400px] lg:rounded-[50px] bg-gradient-to-bl from-green to-blue"
             isBlurred
         >
             <CardHeader className="flex justify-center items-center h-fit p-[15px]">
@@ -25,7 +25,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
                 <p className="font-northwell text-light text-[200px] absolute translate-x-[-325px] translate-y-[50px] max-xl:hidden">
                     "
                 </p>
-                <p className="font-serif text-light text-[22px] text-center w-[80%]">{stylistQuote}</p>
+                <p className="font-serif text-light text-[18px] lg:text-[22px] text-center w-[80%]">{stylistQuote}</p>
                 <p className="font-northwell text-light text-[200px] absolute translate-x-[325px] translate-y-[50px] transform scale-x-[-1] max-xl:hidden">
                     "
                 </p>

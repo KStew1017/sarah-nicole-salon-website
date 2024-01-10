@@ -8,7 +8,7 @@ interface stylistsProps {
     name: string;
     quote: string;
     bio: string;
-    payamentMethods: string[];
+    paymentMethods: string[];
     services: string[];
     icons: string[];
 }

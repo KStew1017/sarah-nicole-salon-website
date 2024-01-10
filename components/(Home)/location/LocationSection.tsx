@@ -7,7 +7,7 @@ export const LocationSection: React.FC = () => {
     return (
         <div
             id="location"
-            className="max-w-[1250px] mx-auto"
+            className="max-w-[1250px] mx-auto pb-[100px]"
         >
             <Reveal
                 hiddenVariant="hiddenXNeg"

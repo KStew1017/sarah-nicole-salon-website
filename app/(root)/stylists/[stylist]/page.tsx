@@ -9,12 +9,56 @@ import { ServicesSection } from "@/components/(Stylists)/(StylistPage)/services/
 import { AppointmentsSection } from "@/components/(Stylists)/(StylistPage)/appointments/AppointmentsSection";
 import { ResultsSection } from "@/components/(Stylists)/(StylistPage)/results/ResultsSection";
 import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
+import { useState, useEffect } from "react";
 
 export default function StylistPage({ params }: { params: { stylist: string } }) {
-    const stylists = siteContent.stylists;
-    const stylist = stylists.find((stylist) => stylist.name.split(" ")[0].toLowerCase() === params.stylist);
+    const [stylists, setStylists] = useState<stylistsProps[]>([]);
 
-    if (!stylist) {
+    const filteredStylists = siteContent.stylists.filter(
+        (stylist) => stylist.name.split(" ")[0].toLowerCase() === params.stylist
+    );
+
+    let icons: any = [];
+    if (filteredStylists.length > 0) {
+        icons = filteredStylists[0].icons;
+    }
+
+    interface stylistsProps {
+        _id: string;
+        name: string;
+        quote: string;
+        bio: string;
+        paymentMethods: string[];
+        services: string[];
+        icons: string[];
+    }
+
+    useEffect(() => {
+        const getStylists = async () => {
+            try {
+                const res = await fetch("/api/db-get");
+                const data = await res.json();
+                setStylists(data.stylists);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getStylists();
+    }, []);
+
+    if (stylists.length === 0) {
+        return (
+            <div className="flex justify-center items-center h-[800px]">
+                <div className="flex flex-col items-center">
+                    <div className="animate-spin rounded-full h-32 w-32 border-t-5 border-b-5 border-green"></div>
+                </div>
+            </div>
+        );
+    }
+
+    const currentStylist = stylists.find((stylist) => stylist.name.split(" ")[0].toLowerCase() === params.stylist);
+
+    if (!currentStylist) {
         return (
             <div className="flex flex-col items-center justify-center h-[50vh]">
                 <FontAwesomeIcon
@@ -41,14 +85,14 @@ export default function StylistPage({ params }: { params: { stylist: string } })
             <>
                 <BackgroundIcons
                     rows={8}
-                    icon1={stylist.icons[0]}
-                    icon2={stylist.icons[1]}
-                    icon3={stylist.icons[2]}
+                    icon1={icons[0]}
+                    icon2={icons[1]}
+                    icon3={icons[2]}
                 />
-                <StylistHeader stylist={stylist} />
-                <ServicesSection stylist={stylist} />
-                <ResultsSection stylist={stylist} />
-                <AppointmentsSection stylist={stylist} />
+                <StylistHeader stylist={currentStylist} />
+                <ServicesSection stylist={currentStylist} />
+                <ResultsSection stylist={currentStylist} />
+                <AppointmentsSection stylist={currentStylist} />
             </>
         );
     }

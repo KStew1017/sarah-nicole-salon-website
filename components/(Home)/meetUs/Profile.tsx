@@ -14,14 +14,14 @@ export const Profile: React.FC<ProfileProps> = ({ stylistName, even, stylistQuot
             hiddenVariant={!even ? "hiddenXNeg" : "hiddenXPos"}
             visibleVariant={!even ? "visibleXNeg" : "visibleXPos"}
         >
-            <div className="flex relative justify-center items-center">
-                <ProfileCard
-                    stylistName={stylistName}
-                    stylistQuote={stylistQuote}
-                />
+            <div className="flex-col flex relative justify-center items-center">
                 <ProfilePicture
                     stylistName={stylistName.split(" ")[0]}
                     even={even}
+                />
+                <ProfileCard
+                    stylistName={stylistName}
+                    stylistQuote={stylistQuote}
                 />
             </div>
         </Reveal>

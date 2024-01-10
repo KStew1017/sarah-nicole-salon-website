@@ -12,6 +12,8 @@ import {
     DropdownTrigger,
     Button,
     DropdownItem,
+    NavbarMenu,
+    NavbarMenuItem,
 } from "@nextui-org/react";
 import { siteInfo } from "@/configs/siteInfo";
 import Link from "next/link";
@@ -36,20 +38,19 @@ export const Navbar: React.FC = () => {
                 position="sticky"
                 isBordered
             >
-                <NavbarContent className="ml-[100px]">
-                    <NavbarMenuToggle
-                        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                        className="sm:hidden"
-                    />
-                    <NavbarBrand className="relative h-[50px]">
-                        <div className="text-[56px] font-northwell text-green absolute bottom-0">
+                <NavbarContent className="md:ml-[100px]">
+                    <NavbarBrand className="relative h-[50px] flex justify-center lg:justify-start">
+                        <div className="text-[50px] lg:text-[56px] font-northwell text-green absolute bottom-0">
                             Sarah Nicole Salon
                         </div>
                     </NavbarBrand>
+                    <NavbarMenuToggle
+                        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                        className="lg:hidden"
+                    />
                 </NavbarContent>
-
                 <NavbarContent
-                    className="hidden sm:flex gap-10 mr-[100px]"
+                    className="hidden lg:flex gap-10 mr-[100px]"
                     justify="end"
                 >
                     {siteInfo.navItems.map((item) => (
@@ -170,19 +171,91 @@ export const Navbar: React.FC = () => {
                         </NavbarItem>
                     )}
                 </NavbarContent>
+                <NavbarMenu className="pt-[50px] bg-light text-dark bg-opacity-75 backdrop-filter backdrop-blur-lg">
+                    {currentUser.isSignedIn && currentUser.user !== null ? (
+                        <>
+                            <NavbarMenuItem
+                                key={"user"}
+                                isActive={false}
+                                className="hover:drop-shadow-none mt-[100px]"
+                            >
+                                <div className="transition ease-s-curve hover:drop-shadow-light flex justify-center items-center relative">
+                                    <UserButton
+                                        afterSignOutUrl="/"
+                                        appearance={{
+                                            elements: {
+                                                userButtonTrigger: "focus:shadow-none",
+                                                userButtonAvatarBox:
+                                                    "w-[100px] h-[100px] rounded-full border-2 border-gold transition ease-s-curve hover:drop-shadow-lg hover:scale-105 hover:translate-y-[-2px]",
+                                                userButtonPopoverCard: "bg-tan-100 border-2 border-gold font-sans",
+                                                userPreviewMainIdentifier: "text-grey text-[18px] font-bold",
+                                                userPreviewSecondaryIdentifier: "text-grey/50",
+                                                userButtonPopoverActionButton: "hover:bg-tan-200",
+                                                userButtonPopoverActionButtonText: "text-[16px]",
+                                                userButtonPopoverActionButtonIcon: "w-[20px] h-[20px]",
+                                                userButtonPopoverFooter: "hidden",
+                                            },
+                                        }}
+                                    />
+                                </div>
+                            </NavbarMenuItem>
+                            {siteInfo.navItems.map((item, i) => (
+                                <NavbarMenuItem
+                                    key={`${item}-${i}`}
+                                    className="mt-[50px]"
+                                >
+                                    <Link
+                                        href={item.href}
+                                        className="flex justify-center relative"
+                                    >
+                                        <span className="text-[30px] font-serif text-green">{item.label}</span>
+                                    </Link>
+                                </NavbarMenuItem>
+                            ))}
+                        </>
+                    ) : (
+                        <>
+                            <NavbarMenuItem className="mt-[100px]">
+                                <Link
+                                    className="flex justify-center relative"
+                                    href="/login"
+                                >
+                                    <span className="text-[30px] font-serif text-green">Stylist Login</span>
+                                </Link>
+                            </NavbarMenuItem>
+                            {siteInfo.navItems.map((item, i) => (
+                                <NavbarMenuItem
+                                    key={`${item}-${i}`}
+                                    className="mt-[100px]"
+                                >
+                                    <Link
+                                        href={item.href}
+                                        className="flex justify-center relative"
+                                    >
+                                        <span className="text-[30px] font-serif text-green">{item.label}</span>
+                                    </Link>
+                                </NavbarMenuItem>
+                            ))}
+                        </>
+                    )}
+                </NavbarMenu>
             </NextUINavbar>
             {currentUser.isSignedIn && currentUser.user !== null ? (
-                <div className="sticky top-[100px] z-50 bg-green w-full h-[50px] bg-opacity-75 backdrop-filter backdrop-blur-lg">
+                <div className="sticky top-[100px] z-50 bg-green w-full h-[75px] lg:h-[50px] bg-opacity-75 backdrop-filter backdrop-blur-lg">
                     <div className="flex items-center justify-center h-full gap-[10px]">
-                        <p className="text-light text-[20px] font-serif ">Welcome, {currentUser.user.firstName}!</p>
+                        <p className="text-light text-[16px] lg:text-[20px] font-serif ">
+                            Welcome, {currentUser.user.firstName}!
+                        </p>
                         <div className="inline">
-                            <span className="text-light text-[20px] font-serif">Visit Your Dashboard </span>
+                            <span className="text-light text-[16px] lg:text-[20px] font-serif">
+                                Visit Your Dashboard{" "}
+                            </span>
                             <Link href={`/dashboard`}>
                                 <Button
                                     radius="full"
-                                    className={`font-serif text-[20px] text-light bg-gold hover:shadow-lg hover:scale-105 data-[hover=true]:opacity-100 h-[30px]`}
+                                    className={`font-serif text-[16px] lg:text-[20px] text-light bg-gold lg:hover:shadow-lg lg:hover:scale-105 data-[hover=true]:opacity-100 w-[50px] lg:h-[30px]`}
                                 >
-                                    <p className=" drop-shadow-md">Here</p>
+                                    <p className=" drop-shadow-lg">Here</p>
                                 </Button>
                             </Link>
                         </div>

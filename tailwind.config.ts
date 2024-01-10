@@ -80,6 +80,11 @@ module.exports = {
             "180": "180deg",
         },
     },
+    variants: {
+        extend: {
+            maxWidth:['responsive']
+        }
+    },
     darkMode: "class",
     important: true,
     plugins: [nextui(), require("tailwind-gradient-mask-image")],

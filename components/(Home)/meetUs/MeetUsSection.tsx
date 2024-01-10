@@ -5,13 +5,12 @@ import { Heading } from "../../layout/Heading";
 import { Profile } from "./Profile";
 import { useEffect, useState } from "react";
 
-
 interface stylistsProps {
     _id: string;
     name: string;
     quote: string;
     bio: string;
-    payamentMethods: string[];
+    paymentMethods: string[];
     services: string[];
     icons: string[];
 }
@@ -34,7 +33,7 @@ export const MeetUsSection: React.FC<MeetUsSectionProps> = ({ stylists }) => {
                     textColor="green"
                 />
             </Reveal>
-            <div className="flex-col flex justify-center items-center gap-[250px] mt-[200px]">
+            <div className="flex-col flex justify-center items-center gap-[150px] lg:gap-[250px] lg:mt-[200px]">
                 {stylists.map((stylist, i) => (
                     <Profile
                         stylistName={stylist.name}

@@ -11,7 +11,7 @@ export const TestimonialsMarquee = () => {
         <div className="flex flex-col justify-center items-center">
             <Marquee
                 play={play}
-                className="w-[1250px] overflow-hidden gradient-mask-l-90-d"
+                className="max-w-[1250px] overflow-hidden gradient-mask-l-90-d"
             >
                 {siteContent.reviews.map((testimonial, index) => (
                     <div
