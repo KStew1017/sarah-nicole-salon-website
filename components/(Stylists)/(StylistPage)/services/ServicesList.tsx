@@ -8,6 +8,24 @@ interface ServicesListProps {
     stylist: StylistType;
 }
 
+const AnimatedLetter: React.FC<{ letter: string }> = ({ letter }) => {
+    const [ref, inView] = useInView({
+        triggerOnce: true,
+    });
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 25, rotate: -50 }}
+            animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 25, rotate: inView ? 0 : -50 }}
+            transition={{ delay: 0.1 }}
+            style={{ whiteSpace: "pre" }}
+        >
+            {letter}
+        </motion.div>
+    );
+};
+
 export const ServicesList: React.FC<ServicesListProps> = ({ stylist }) => {
     const [fontSize, setFontSize] = useState(0);
 
@@ -32,38 +50,23 @@ export const ServicesList: React.FC<ServicesListProps> = ({ stylist }) => {
 
     return (
         <div className="flex flex-col text-center gap-[25px]">
-            {stylist.services.map((service, i) => {
-                const [ref, inView] = useInView({
-                    triggerOnce: true,
-                });
-
-                return (
-                    <Reveal
+            {stylist.services.map((service, i) => (
+                <Reveal
+                    key={i}
+                    hiddenVariant={i % 2 === 0 ? "hiddenXPos" : "hiddenXNeg"}
+                    visibleVariant={i % 2 === 0 ? "visibleXPos" : "visibleXNeg"}
+                >
+                    <div
                         key={i}
-                        hiddenVariant={i % 2 === 0 ? "hiddenXPos" : "hiddenXNeg"}
-                        visibleVariant={i % 2 === 0 ? "visibleXPos" : "visibleXNeg"}
+                        style={{ fontSize: `${fontSize - (i + 2) * 6}px` }}
+                        className="font-serif text-green flex justify-center"
                     >
-                        <div
-                            key={i}
-                            style={{ fontSize: `${fontSize - (i + 2) * 6}px` }}
-                            className="font-serif text-green flex justify-center"
-                        >
-                            {service.split("").map((letter, j) => (
-                                <motion.div
-                                    ref={ref}
-                                    key={j}
-                                    initial={{ opacity: 0, y: 25, rotate: -50 }}
-                                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 25, rotate: inView ? 0 : -50 }}
-                                    transition={{ delay: j * 0.1 }}
-                                    style={{ whiteSpace: "pre" }}
-                                >
-                                    {letter}
-                                </motion.div>
-                            ))}
-                        </div>
-                    </Reveal>
-                );
-            })}
+                        {service.split("").map((letter, j) => (
+                            <AnimatedLetter key={j} letter={letter} />
+                        ))}
+                    </div>
+                </Reveal>
+            ))}
         </div>
     );
 };
