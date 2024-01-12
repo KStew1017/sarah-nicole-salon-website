@@ -23,11 +23,11 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
             <Divider className="w-[80%] mx-auto" />
             <CardBody className="flex justify-center items-center h-fit overflow-hidden">
                 <p className="font-northwell text-light text-[200px] absolute translate-x-[-325px] translate-y-[50px] max-xl:hidden">
-                    "
+                    &quot;
                 </p>
                 <p className="font-serif text-light text-[18px] lg:text-[22px] text-center w-[80%]">{stylistQuote}</p>
                 <p className="font-northwell text-light text-[200px] absolute translate-x-[325px] translate-y-[50px] transform scale-x-[-1] max-xl:hidden">
-                    "
+                    &quot;
                 </p>
             </CardBody>
             <Divider className="w-[80%] mx-auto" />

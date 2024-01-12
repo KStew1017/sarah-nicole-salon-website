@@ -32,22 +32,23 @@ export const ServicesList: React.FC<ServicesListProps> = ({ stylist }) => {
 
     return (
         <div className="flex flex-col text-center gap-[25px]">
-            {stylist.services.map((service, i) => (
-                <Reveal
-                    key={i}
-                    hiddenVariant={i % 2 === 0 ? "hiddenXPos" : "hiddenXNeg"}
-                    visibleVariant={i % 2 === 0 ? "visibleXPos" : "visibleXNeg"}
-                >
-                    <div
+            {stylist.services.map((service, i) => {
+                const [ref, inView] = useInView({
+                    triggerOnce: true,
+                });
+
+                return (
+                    <Reveal
                         key={i}
-                        style={{ fontSize: `${fontSize - (i + 2) * 6}px` }}
-                        className="font-serif text-green flex justify-center"
+                        hiddenVariant={i % 2 === 0 ? "hiddenXPos" : "hiddenXNeg"}
+                        visibleVariant={i % 2 === 0 ? "visibleXPos" : "visibleXNeg"}
                     >
-                        {service.split("").map((letter, j) => {
-                            const [ref, inView] = useInView({
-                                triggerOnce: true,
-                            });
-                            return (
+                        <div
+                            key={i}
+                            style={{ fontSize: `${fontSize - (i + 2) * 6}px` }}
+                            className="font-serif text-green flex justify-center"
+                        >
+                            {service.split("").map((letter, j) => (
                                 <motion.div
                                     ref={ref}
                                     key={j}
@@ -58,11 +59,11 @@ export const ServicesList: React.FC<ServicesListProps> = ({ stylist }) => {
                                 >
                                     {letter}
                                 </motion.div>
-                            );
-                        })}
-                    </div>
-                </Reveal>
-            ))}
+                            ))}
+                        </div>
+                    </Reveal>
+                );
+            })}
         </div>
     );
 };
