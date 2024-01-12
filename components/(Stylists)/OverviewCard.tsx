@@ -52,7 +52,7 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
                 </div>
                 <div className={`absolute w-full h-full bg-green ${!even ? "" : "scale-x-[-1]"}`} />
                 <img
-                    src={`/images/${stylistFirstName}/${stylistFirstName}-profile.jpeg`}
+                    src={`/public/images/${stylistFirstName}/${stylistFirstName}-profile.jpeg`}
                     alt={`${stylistName} profile`}
                     className={`absolute max-w-full min-w-[75%] lg:w-[80%] h-full  object-cover ${
                         !even ? "right-0" : "scale-x-[-1] left-0"
