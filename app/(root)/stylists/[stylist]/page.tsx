@@ -62,13 +62,13 @@ export default function StylistPage({ params }: { params: { stylist: string } })
         return (
             <div className="flex flex-col items-center justify-center h-[50vh]">
                 <FontAwesomeIcon
-                    className="h-[150px]"
+                    className="h-[50px] md:h-[150px]"
                     color={tailwindCustomColors.green}
                     icon={faTriangleExclamation}
                 />
-                <h1 className="font-serif text-green text-[48px] mt-4">Stylist not found</h1>
-                <p className="font-serif text-green text-[18px] mt-4">Please check the URL and try again,</p>
-                <p className="font-serif text-green text-[18px]">
+                <h1 className="font-serif text-green text-[36px] md:text-[48px] mt-4">Stylist not found</h1>
+                <p className="font-serif text-green text-[14px] md:text-[18px] mt-4">Please check the URL and try again,</p>
+                <p className="font-serif text-green text-[14px] md:text-[18px]">
                     or see our stylists{" "}
                     <a
                         href="/stylists"
@@ -91,8 +91,8 @@ export default function StylistPage({ params }: { params: { stylist: string } })
                 />
                 <StylistHeader stylist={currentStylist} />
                 <ServicesSection stylist={currentStylist} />
-                <ResultsSection stylist={currentStylist} />
                 <AppointmentsSection stylist={currentStylist} />
+                <ResultsSection stylist={currentStylist} />
             </>
         );
     }

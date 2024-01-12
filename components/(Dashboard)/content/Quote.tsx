@@ -78,7 +78,7 @@ export const Quote: React.FC<QuoteProps> = ({ quote, name }) => {
 
     return (
         <div className="relative bg-light shadow-3xl my-[50px] p-[50px] rounded-[50px] min-w-full flex flex-col items-center justify-center">
-            <h2 className="text-[60px] font-northwell text-green text-center mb-[25px]">Meet Me Quote</h2>
+            <h2 className="text-[48px] lg:text-[60px] font-northwell text-green text-center mb-[25px]">Meet Me Quote</h2>
             <TextEditTemplate
                 isEditing={isEditing}
                 textState={textState}

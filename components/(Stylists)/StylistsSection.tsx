@@ -28,7 +28,7 @@ export const StylistsSection: React.FC<StylistsSectionProps> = ({ stylists }) =>
                     title="Stylists"
                     decoration="e"
                     font="northwell"
-                    textStyles="tracking-[10px]"
+                    textStyles="tracking-[5px]"
                     boxStyles="mt-[100px]"
                     textColor="green"
                 />

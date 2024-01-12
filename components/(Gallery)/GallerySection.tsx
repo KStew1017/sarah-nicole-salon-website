@@ -14,7 +14,8 @@ interface ImagesProps {
 
 export const GallerySection: React.FC = () => {
     const [images, setImages] = useState<ImagesProps[]>([]);
-    const [displayCount, setDisplayCount] = useState(9);
+    const [displayCount, setDisplayCount] = useState(0);
+    const [numberOfImageToAdd, setNumberOfImageToAdd] = useState(0);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const [isLoaded, setIsLoaded] = useState(new Array(images.length).fill(false));
@@ -31,6 +32,26 @@ export const GallerySection: React.FC = () => {
         };
 
         fetchImages();
+
+    
+            const handleResize = () => {
+                const screenWidth = window.innerWidth;
+                if (screenWidth < 768) {
+                    setDisplayCount(6);
+                    setNumberOfImageToAdd(4);
+                } else {
+                    setDisplayCount(9);
+                    setNumberOfImageToAdd(6);
+                }
+            };
+    
+            handleResize();
+    
+            window.addEventListener("resize", handleResize);
+    
+            return () => {
+                window.removeEventListener("resize", handleResize);
+            }
     }, []);
 
     const handleImageClick = (index: any) => {
@@ -39,7 +60,7 @@ export const GallerySection: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col items-center relative max-w-[1250px] justify-center mx-auto my-[100px]">
+        <div className="flex flex-col items-center relative w-[90%] lg:w-full max-w-[1250px] justify-center mx-auto my-[100px]">
             <Reveal
                 hiddenVariant="hiddenXPos"
                 visibleVariant="visibleXPos"
@@ -62,7 +83,7 @@ export const GallerySection: React.FC = () => {
             {displayCount < images.length - 1 && (
                 <div
                     className="bg-green text-light shadow-3xl rounded-full text-[20px] w-fit h-fit px-[25px] py-[10px]  mt-[100px] font-serif hover:cursor-pointer hover:shadow-lg hover:scale-105 transition-all ease-s-curve"
-                    onClick={() => setDisplayCount((count) => count + 9)}
+                    onClick={() => setDisplayCount((count) => count + numberOfImageToAdd)}
                 >
                     Show More
                 </div>

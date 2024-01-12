@@ -38,7 +38,7 @@ export const Navbar: React.FC = () => {
                 position="sticky"
                 isBordered
             >
-                <NavbarContent className="md:ml-[100px]">
+                <NavbarContent className="lg:ml-[100px]">
                     <NavbarBrand className="relative h-[50px] flex justify-center lg:justify-start">
                         <div className="text-[50px] lg:text-[56px] font-northwell text-green absolute bottom-0">
                             Sarah Nicole Salon
@@ -243,19 +243,19 @@ export const Navbar: React.FC = () => {
             {currentUser.isSignedIn && currentUser.user !== null ? (
                 <div className="sticky top-[100px] z-50 bg-green w-full h-[75px] lg:h-[50px] bg-opacity-75 backdrop-filter backdrop-blur-lg">
                     <div className="flex items-center justify-center h-full gap-[10px]">
-                        <p className="text-light text-[16px] lg:text-[20px] font-serif ">
+                        <p className="text-light text-[14px] md:text-[16px] lg:text-[20px] font-serif ">
                             Welcome, {currentUser.user.firstName}!
                         </p>
                         <div className="inline">
-                            <span className="text-light text-[16px] lg:text-[20px] font-serif">
+                            <span className="text-light text-[14px] md:text-[16px] lg:text-[20px] font-serif">
                                 Visit Your Dashboard{" "}
                             </span>
                             <Link href={`/dashboard`}>
                                 <Button
                                     radius="full"
-                                    className={`font-serif text-[16px] lg:text-[20px] text-light bg-gold lg:hover:shadow-lg lg:hover:scale-105 data-[hover=true]:opacity-100 w-[50px] lg:h-[30px]`}
+                                    className={`font-serif text-[14px] md:text-[16px] lg:text-[20px] text-light bg-gold lg:hover:shadow-lg lg:hover:scale-105 data-[hover=true]:opacity-100 w-[50px] h-[30px]`}
                                 >
-                                    <p className=" drop-shadow-lg">Here</p>
+                                    <p className="drop-shadow-lg">Here</p>
                                 </Button>
                             </Link>
                         </div>

@@ -90,7 +90,7 @@ export const Services: React.FC<ServicesProps> = ({ services, name }) => {
 
     return (
         <div className="relative bg-light shadow-3xl my-[50px] p-[50px] rounded-[50px] min-w-full flex flex-col items-center justify-center">
-            <h2 className="text-[60px] font-northwell text-green text-center">Services</h2>
+            <h2 className="text-[48px] lg:text-[60px] font-northwell text-green text-center">Services</h2>
             <ListEditTemplate
                 listState={listState}
                 isEditing={isEditing}

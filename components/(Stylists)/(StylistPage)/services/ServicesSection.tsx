@@ -10,7 +10,7 @@ interface ServicesListProps {
 export const ServicesSection: React.FC<ServicesListProps> = ({ stylist }) => {
     return (
         <div
-            className="flex flex-col items-center relative max-w-[1250px] justify-center mx-auto my-[200px]"
+            className="flex flex-col items-center relative max-w-[1250px] justify-center mx-auto my-[50px] lg:my-[200px]"
         >
             <Reveal
                 hiddenVariant="hiddenXPos"

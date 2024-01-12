@@ -18,10 +18,25 @@ export const PaymentMethods: React.FC<PaymentMethodsProps> = ({ paymentMethods, 
     const [saveSuccess, setSaveSuccess] = useState(false);
     const [exitAnimation, setExitAnimation] = useState(false); // Used to trigger exit animation on save success
     const [isLoaded, setIsLoaded] = useState(false);
+    const [svgHeight, setHeight] = useState(0);
+
 
     useEffect(() => {
         setSelected(paymentMethods);
         setIsLoaded(true);
+        const handleResize = () => {
+            const screenWidth = window.innerWidth;
+            if (screenWidth < 1024) {
+                setHeight(30);
+            } else {
+                setHeight(50);
+            }
+        };
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
     }, [paymentMethods]);
 
     const handleSave = async () => {
@@ -60,7 +75,7 @@ export const PaymentMethods: React.FC<PaymentMethodsProps> = ({ paymentMethods, 
 
     return (
         <div className="bg-light shadow-3xl my-[50px] p-[50px] rounded-[50px] w-full relative">
-            <h2 className="text-[60px] font-northwell text-green text-center">Payment Methods</h2>
+            <h2 className="text-[48px] lg:text-[60px] font-northwell text-green text-center">Payment Methods</h2>
             {isLoaded ? (
                 <>
                     <CheckboxGroup
@@ -69,7 +84,7 @@ export const PaymentMethods: React.FC<PaymentMethodsProps> = ({ paymentMethods, 
                         onValueChange={setSelected}
                         classNames={{
                             base: "mt-[25px]",
-                            wrapper: "flex flex-row gap-[100px] items-center justify-center",
+                            wrapper: "flex flex-row gap-[25px] lg:gap-[100px] items-center justify-center",
                         }}
                     >
                         <Checkbox
@@ -78,7 +93,7 @@ export const PaymentMethods: React.FC<PaymentMethodsProps> = ({ paymentMethods, 
                         >
                             <FontAwesomeIcon
                                 icon={faMoneyBillWave}
-                                className="h-[50px]"
+                                className="h-[30px] lg:h-[50px]"
                             />
                             <p className="text-center">Cash</p>
                         </Checkbox>
@@ -88,7 +103,7 @@ export const PaymentMethods: React.FC<PaymentMethodsProps> = ({ paymentMethods, 
                         >
                             <FontAwesomeIcon
                                 icon={faMoneyCheck}
-                                className="h-[50px]"
+                                className="h-[30px] lg:h-[50px]"
                             />
                             <p className="text-center">Check</p>
                         </Checkbox>
@@ -98,7 +113,7 @@ export const PaymentMethods: React.FC<PaymentMethodsProps> = ({ paymentMethods, 
                         >
                             <Zelle
                                 color={tailwindCustomColors.green}
-                                height="50px"
+                                height={`${svgHeight}px`}
                             />
                             <p className="text-center mt-[5px]">Zelle</p>
                         </Checkbox>

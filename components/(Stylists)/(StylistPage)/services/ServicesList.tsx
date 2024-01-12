@@ -1,7 +1,7 @@
 import { Reveal } from "@/utlis/reveal";
 import { StylistType } from "@/utlis/types";
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 interface ServicesListProps {
@@ -9,6 +9,27 @@ interface ServicesListProps {
 }
 
 export const ServicesList: React.FC<ServicesListProps> = ({ stylist }) => {
+    const [fontSize, setFontSize] = useState(0);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const screenWidth = window.innerWidth;
+            if (screenWidth < 768) {
+                setFontSize(60);
+            } else {
+                setFontSize(80);
+            }
+        };
+
+        handleResize();
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
     return (
         <div className="flex flex-col text-center gap-[25px]">
             {stylist.services.map((service, i) => (
@@ -19,7 +40,7 @@ export const ServicesList: React.FC<ServicesListProps> = ({ stylist }) => {
                 >
                     <div
                         key={i}
-                        style={{ fontSize: `${80 - (i + 2) * 6}px` }}
+                        style={{ fontSize: `${fontSize - (i + 2) * 6}px` }}
                         className="font-serif text-green flex justify-center"
                     >
                         {service.split("").map((letter, j) => {

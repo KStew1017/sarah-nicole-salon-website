@@ -22,11 +22,11 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
             hiddenVariant={!even ? "hiddenXNeg" : "hiddenXPos"}
             visibleVariant={!even ? "visibleXNeg" : "visibleXPos"}
         >
-            <div className={`relative mx-auto w-[80%] h-[500px] shadow-3xl rounded-[50px] overflow-hidden`}>
-                <div className={`w-[40%] h-full absolute z-10 pt-[50px] text-center ${!even ? "" : "right-0"}`}>
-                    <h1 className="text-light font-northwell text-[64px] h-[100px]">{stylistName}</h1>
-                    <div className="h-[200px] flex flex-col justify-between">
-                        {stylistServices.slice(0, 5).map((service, index) => (
+            <div className={`relative mx-auto w-[90%] lg:w-[80%] lg:h-[500px] h-[300px] shadow-3xl rounded-[50px] overflow-hidden`}>
+                <div className={`w-[60%] lg:w-[40%] h-full absolute z-10 lg:pt-[50px] text-center ${!even ? "" : "right-0"} flex flex-col justify-center items-center`}>
+                    <h1 className="text-light font-northwell text-[64px] lg:h-[100px] px-[25px]">{stylistName}</h1>
+                    <div className="h-[200px] hidden lg:flex flex-col justify-between">
+                        {stylistServices.map((service, index) => (
                             <div
                                 key={index}
                                 className="flex justify-center items-center"
@@ -36,7 +36,7 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
                         ))}
                         <p className="text-light font-serif text-[18px]">...and more!</p>
                     </div>
-                    <div className="h-[150px] flex justify-center items-center">
+                    <div className="h-[150px] hidden lg:flex justify-center items-center">
                         <Link href={`/stylists/${stylistName.split(" ")[0].toLowerCase()}`}>
                             <Button
                                 radius="full"
@@ -54,10 +54,11 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
                 <img
                     src={`/images/${stylistFirstName}/${stylistFirstName}-profile.jpeg`}
                     alt={`${stylistName} profile`}
-                    className={`absolute w-[80%] h-full object-cover ${
+                    className={`absolute max-w-full min-w-[75%] lg:w-[80%] h-full  object-cover ${
                         !even ? "right-0" : "scale-x-[-1] left-0"
                     } gradient-mask-l-10 `}
                 />
+                <Link className="z-50 absolute lg:hidden w-full h-full" href={`/stylists/${stylistName.split(" ")[0].toLowerCase()}`} />
             </div>
         </Reveal>
     );

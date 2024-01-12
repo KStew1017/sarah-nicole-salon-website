@@ -30,7 +30,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onOpenChange, selectedI
             onOpenChange={onOpenChange}
             backdrop="blur"
             classNames={{
-                base: "max-w-[75vh]",
+                base: "w-[90%] max-w-[75vh] flex my-auto",
                 closeButton:
                     "text-light hover:bg-gold absolute left-0 right-0 bottom-0 top-auto mx-auto translate-y-[-25px] w-[50px] h-[50px] justify-center items-center flex hover:scale-105 transition-all ease-s-curve text-[24px] z-50",
             }}
@@ -46,7 +46,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onOpenChange, selectedI
                             alt={`result ${selectedImageIndex + 1}`}
                             width={500}
                             height={1000}
-                            className="h-[75vh] w-full object-cover shadow-3xl"
+                            className="lg:h-[75vh] w-full object-cover shadow-3xl"
                         />
                     </Skeleton>
                 )}

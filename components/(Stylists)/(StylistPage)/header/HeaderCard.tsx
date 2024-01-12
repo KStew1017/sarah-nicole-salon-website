@@ -14,15 +14,17 @@ export const HeaderCard: React.FC<HeaderCardProps> = ({ stylist }) => {
             initial={{ y: 200 }}
             animate={{ y: 0 }}
             transition={{ duration: 1.5, delay: 0.5, type: "spring" }}
-            className="relative overflow-hidden rounded-[50px] mt-[50px] shadow-3xl h-[80vh] max-h-[800px]"
+            className="relative lg:rounded-[50px] lg:mt-[50px] shadow-3xl lg:h-[80vh] lg:max-h-[800px]"
         >
-            <HeaderContent stylist={stylist} />
             <img
                 src={`/images/${stylistFirstName}/${stylistFirstName}-profile.jpeg`}
                 alt={`${stylist.name} Profile Picture`}
                 title={`${stylist.name} Profile Picture`}
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full lg:rounded-[50px]"
             />
+            <div className="lg:absolute inset-0 lg:flex lg:items-center ">
+                <HeaderContent stylist={stylist} />
+            </div>
         </motion.div>
     );
 };

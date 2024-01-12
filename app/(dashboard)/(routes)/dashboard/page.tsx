@@ -89,7 +89,7 @@ export default function Dashboard() {
                 visibleVariant="visibleFade"
                 delay={1}
             >
-                <div className="flex flex-col items-center relative max-w-[1250px] justify-center mx-auto my-[100px]">
+                <div className="flex flex-col items-center relative max-w-[1250px] justify-center mx-auto my-[50px] lg:my-[100px]">
                     <DashboardSection
                         name={name}
                         firstName={firstName}

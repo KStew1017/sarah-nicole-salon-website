@@ -81,32 +81,36 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
     };
 
     const handleSaveUploadedImages = async () => {
-        if (uploadedImages.length === 0) {
+        try {
+            if (uploadedImages.length === 0) {
+                setIsAddingImages(false);
+                setUploadedImages([]);
+                setIsRemovingUploadedImages(false);
+            }
+
+            for (const file of uploadedImages) {
+                const formData = new FormData();
+                formData.append("file", file);
+                formData.append("userName", firstName);
+
+                try {
+                    const response = await fetch("/api/s3-post", {
+                        method: "POST",
+                        body: formData,
+                    });
+                    const data = await response.json();
+                    console.log(data.status);
+                } catch (error) {
+                    console.log(error);
+                }
+            }
             setIsAddingImages(false);
             setUploadedImages([]);
             setIsRemovingUploadedImages(false);
+            setNewImagesAdded(true);
+        } catch (error) {
+            console.log(error);
         }
-
-        for (const file of uploadedImages) {
-            const formData = new FormData();
-            formData.append("file", file);
-            formData.append("userName", firstName);
-
-            try {
-                const response = await fetch("/api/s3-post", {
-                    method: "POST",
-                    body: formData,
-                });
-                const data = await response.json();
-                console.log(data.status);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        setIsAddingImages(false);
-        setUploadedImages([]);
-        setIsRemovingUploadedImages(false);
-        setNewImagesAdded(true);
     };
 
     const handleRemoveImage = async (imageKey: string) => {
@@ -167,11 +171,11 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
     return (
-        <div className="bg-light shadow-3xl my-[50px] p-[50px] rounded-[50px] w-full flex flex-col items-center justify-center">
-            <h2 className="text-[60px] font-northwell text-green text-center mb-[25px]">My Images</h2>
+        <div className="bg-light shadow-3xl my-[50px] p-[25px] lg:p-[50px] rounded-[50px] w-full flex flex-col items-center justify-center">
+            <h2 className="text-[48px] lg:text-[60px] font-northwell text-green text-center mb-[25px]">My Images</h2>
             {images.length > 0 ? (
                 <div className="flex flex-col items-center">
-                    <div className="grid grid-cols-6 grid-flow-row gap-[75px]">
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 grid-flow-row gap-[25px] md:gap-[50px] lg:gap-[75px]">
                         <AnimatePresence>
                             {images &&
                                 images.map((url, i) => (
@@ -189,7 +193,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
                                         {isRemovingImages && (
                                             <>
                                                 <div
-                                                    className="absolute -top-1/4 -right-1/4 bg-red-500 text-white font-bold text-[25px] rounded-full h-1/2 w-1/2 flex items-center justify-center hover:scale-105 transition duration-100 hover:shadow-xl"
+                                                    className="absolute top-1/4 right-1/4 lg:-top-1/4 lg:-right-1/4 bg-none bg-red-500 bg-opacity-25 backdrop-filter backdrop-blur-lg text-white font-bold text-[25px] rounded-full h-1/2 w-1/2 flex items-center justify-center hover:scale-105 transition duration-100 hover:shadow-xl"
                                                     onClick={onOpen}
                                                 >
                                                     X
@@ -248,10 +252,10 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
                     {uploadedImages.length > 0 && (
                         <>
                             <Divider className="my-[100px]" />
-                            <h2 className="text-[60px] font-northwell text-green text-center mb-[25px]">
+                            <h2 className="text-[48px] lg:text-[60px] font-northwell text-green text-center mb-[25px]">
                                 Images to Add
                             </h2>
-                            <div className="grid grid-cols-6 grid-flow-row gap-[75px]">
+                            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 grid-flow-row gap-[25px] md:gap-[50px] lg:gap-[75px]">
                                 <AnimatePresence>
                                     {uploadedImages &&
                                         uploadedImages.map((image, i) => (
@@ -277,7 +281,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
                                                 />
                                                 {isRemovingUploadedImages && (
                                                     <div
-                                                        className="absolute -top-1/4 -right-1/4 bg-red-500 text-white font-bold text-[25px] rounded-full h-1/2 w-1/2 flex items-center justify-center hover:scale-105 transition duration-100 hover:shadow-xl"
+                                                        className="absolute top-1/4 right-1/4 lg:-top-1/4 lg:-right-1/4 bg-none bg-red-500 bg-opacity-50 backdrop-filter backdrop-blur-lg text-white font-bold text-[25px] rounded-full h-1/2 w-1/2 flex items-center justify-center hover:scale-105 transition duration-100 hover:shadow-xl"
                                                         onClick={handleRemoveUploadedImage}
                                                     >
                                                         X
@@ -301,7 +305,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
                             <></>
                         ) : (
                             <Button
-                                className="hover:bg-tan hover:shadow-lg bg-green hover:border-2 hover:border-green hover:text-green text-light font-serif text-[20px] w-fit mt-[50px]"
+                                className="hover:bg-tan hover:shadow-lg bg-green hover:border-2 hover:border-green hover:text-green text-light font-serif text-[20px] w-fit mt-[25px] lg:mt-[50px]"
                                 onClick={handleUploadButtonClick}
                             >
                                 Add Image
@@ -312,14 +316,18 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
                             <>
                                 {isRemovingImages ? (
                                     <Button
-                                        className={`hover:bg-tan hover:shadow-lg bg-red-500 hover:border-2 hover:border-red-500 hover:text-red-500 text-light font-serif text-[20px] ${isRemovingImages ? "mt-[50px]" : ""}`}
+                                        className={`hover:bg-tan hover:shadow-lg bg-red-500 hover:border-2 hover:border-red-500 hover:text-red-500 text-light font-serif text-[20px] ${
+                                            isRemovingImages ? "mt-[50px]" : ""
+                                        }`}
                                         onClick={handleDoneRemovingImageButtonClick}
                                     >
                                         Done Removing
                                     </Button>
                                 ) : (
                                     <Button
-                                        className={`hover:bg-tan hover:shadow-lg bg-red-500 hover:border-2 hover:border-red-500 hover:text-red-500 text-light font-serif text-[20px] ${isRemovingImages ? "mt-[50px]" : ""}`}
+                                        className={`hover:bg-tan hover:shadow-lg bg-red-500 hover:border-2 hover:border-red-500 hover:text-red-500 text-light font-serif text-[20px] ${
+                                            isRemovingImages ? "mt-[50px]" : ""
+                                        }`}
                                         onClick={handleRemoveImageButtonClick}
                                     >
                                         Remove Images
@@ -328,14 +336,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
                             </>
                         )}
                         {isAddingImages && (
-                            <div className="flex gap-[50px] items-center justify-center">
-                                <Button
-                                    className="hover:bg-tan hover:shadow-lg bg-gold hover:border-2 hover:border-gold hover:text-gold text-light font-serif text-[20px] w-[100px]"
-                                    onClick={handleSaveUploadedImages}
-                                >
-                                    Save
-                                </Button>
-
+                            <div className="flex flex-col gap-[25px] lg:gap-[50px] items-center justify-center">
                                 {isRemovingUploadedImages ? (
                                     <Button
                                         className="hover:bg-tan hover:shadow-lg bg-orange-400 hover:border-2 hover:border-orange-400 hover:text-orange-400 text-light font-serif text-[20px] w-fit"
@@ -351,12 +352,21 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
                                         Remove Images
                                     </Button>
                                 )}
-                                <Button
-                                    className="hover:bg-tan hover:shadow-lg bg-red-500 hover:border-2 hover:border-red-500 hover:text-red-500 text-light font-serif text-[20px] w-[100px]"
-                                    onClick={handleCancelUpload}
-                                >
-                                    Cancel
-                                </Button>
+                                <div className="flex gap-[25px] items-center justify-center">
+                                    <Button
+                                        className="hover:bg-tan hover:shadow-lg bg-gold hover:border-2 hover:border-gold hover:text-gold text-light font-serif text-[20px] w-[100px]"
+                                        onClick={handleSaveUploadedImages}
+                                    >
+                                        Save
+                                    </Button>
+
+                                    <Button
+                                        className="hover:bg-tan hover:shadow-lg bg-red-500 hover:border-2 hover:border-red-500 hover:text-red-500 text-light font-serif text-[20px] w-[100px]"
+                                        onClick={handleCancelUpload}
+                                    >
+                                        Cancel
+                                    </Button>
+                                </div>
                             </div>
                         )}
                     </div>

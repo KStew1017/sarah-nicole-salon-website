@@ -33,7 +33,7 @@ export const ListEditTemplate: React.FC<ListEditTemplateProps> = ({
         <>
             {isEditing ? (
                 <div className="h-full min-w-full flex flex-col items-center justify-center gap-[25px]">
-                    <div className="flex flex-col items-center w-[25%] gap-[25px]">
+                    <div className="flex flex-col items-center w-full lg:w-[25%] gap-[25px]">
                         {editedList?.map((item, index) => (
                             <Textarea
                                 key={index}
@@ -53,35 +53,35 @@ export const ListEditTemplate: React.FC<ListEditTemplateProps> = ({
                                     innerWrapper: "items-center",
                                     inputWrapper:
                                         "bg-tan rounded-[25px] px-[25px] data-[hover=true]:bg-tan group-data-[focus=true]:bg-white",
-                                    input: "font-serif text-[20px] text-green text-center",
-                                    errorMessage: "font-serif text-red-600 text-[16px] w-full text-center",
+                                    input: "font-serif text-[18px] lg:text-[24px] text-green text-center",
+                                    errorMessage: "font-serif text-red-600 text-[14px] lg:text-[16px] w-full text-center",
                                 }}
                             />
                         ))}
                     </div>
-                    <div className="w-[25%] flex justify-between items-center ">
+                    <div className="w-full lg:w-[25%] flex justify-between items-center ">
                         <Button
-                            className="hover:bg-tan hover:shadow-lg bg-cyan-600 hover:border-2 hover:border-cyan-600 hover:text-cyan-600 text-light rounded-r-none font-serif text-[20px] w-full"
+                            className="hover:bg-tan hover:shadow-lg bg-cyan-600 hover:border-2 hover:border-cyan-600 hover:text-cyan-600 text-light rounded-r-none font-serif text-[18px] lg:text-[24px] w-full"
                             onClick={handleAddItem}
                         >
                             Add
                         </Button>
                         <Button
-                            className="hover:bg-tan hover:shadow-lg bg-red-500 hover:border-2 hover:border-red-500 hover:text-red-500 text-light rounded-l-none font-serif text-[20px] w-full"
+                            className="hover:bg-tan hover:shadow-lg bg-red-500 hover:border-2 hover:border-red-500 hover:text-red-500 text-light rounded-l-none font-serif text-[18px] lg:text-[24px] w-full"
                             onClick={handleRemoveLastItem}
                         >
                             Remove Last
                         </Button>
                     </div>
-                    <div className="w-[25%] flex justify-between items-center ">
+                    <div className="w-full lg:w-[25%] flex justify-between items-center ">
                         <Button
-                            className="hover:bg-tan hover:shadow-lg bg-gold hover:border-2 hover:border-gold hover:text-gold text-light font-serif text-[20px] w-[100px]"
+                            className="hover:bg-tan hover:shadow-lg bg-gold hover:border-2 hover:border-gold hover:text-gold text-light font-serif text-[18px] lg:text-[24px] w-[100px]"
                             onClick={handleSave}
                         >
                             Save
                         </Button>
                         <Button
-                            className="hover:bg-tan hover:shadow-lg bg-green hover:border-2 hover:border-green hover:text-green text-light font-serif text-[20px] w-[100px]"
+                            className="hover:bg-tan hover:shadow-lg bg-green hover:border-2 hover:border-green hover:text-green text-light font-serif text-[18px] lg:text-[24px] w-[100px]"
                             onClick={handleCancel}
                         >
                             Cancel
