@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    reactStrictMode: false,
+    compiler: {
+        styledComponents: true
+    },
+    distDir: "build",
     images: {
         remotePatterns: [
             {
@@ -9,7 +14,6 @@ const nextConfig = {
             },
         ],
     },
-    distDir: "build",
 };
 
 module.exports = nextConfig;

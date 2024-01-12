@@ -36,7 +36,12 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         "app/api/s3-get/becki/route.ts",
-        "models/Stylist.js"
+        "models/Stylist.js",
+        "tailwind.config.js",
+        "postcss.config.js",
+        "next.config.js",
+        "dist/types/**/*.ts",
+        "build/types/**/*.ts",
     ],
     "exclude": [
         "node_modules"
