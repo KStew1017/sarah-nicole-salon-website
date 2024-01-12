@@ -17,7 +17,7 @@ export const HeaderCard: React.FC<HeaderCardProps> = ({ stylist }) => {
             className="relative lg:rounded-[50px] lg:mt-[50px] shadow-3xl lg:h-[80vh] lg:max-h-[800px]"
         >
             <img
-                src={`/public/images/${stylistFirstName}/${stylistFirstName}-profile.jpeg`}
+                src={`/images/${stylistFirstName}/${stylistFirstName}-profile.jpeg`}
                 alt={`${stylist.name} Profile Picture`}
                 title={`${stylist.name} Profile Picture`}
                 className="object-cover w-full h-full lg:rounded-[50px]"

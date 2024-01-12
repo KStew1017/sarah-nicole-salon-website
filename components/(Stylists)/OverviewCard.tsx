@@ -22,8 +22,14 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
             hiddenVariant={!even ? "hiddenXNeg" : "hiddenXPos"}
             visibleVariant={!even ? "visibleXNeg" : "visibleXPos"}
         >
-            <div className={`relative mx-auto w-[90%] lg:w-[80%] lg:h-[500px] h-[300px] shadow-3xl rounded-[50px] overflow-hidden`}>
-                <div className={`w-[60%] lg:w-[40%] h-full absolute z-10 lg:pt-[50px] text-center ${!even ? "" : "right-0"} flex flex-col justify-center items-center`}>
+            <div
+                className={`relative mx-auto w-[90%] lg:w-[80%] lg:h-[500px] h-[300px] shadow-3xl rounded-[50px] overflow-hidden`}
+            >
+                <div
+                    className={`w-[60%] lg:w-[40%] h-full absolute z-10 lg:pt-[50px] text-center ${
+                        !even ? "" : "right-0"
+                    } flex flex-col justify-center items-center`}
+                >
                     <h1 className="text-light font-northwell text-[64px] lg:h-[100px] px-[25px]">{stylistName}</h1>
                     <div className="h-[200px] hidden lg:flex flex-col justify-between">
                         {stylistServices.map((service, index) => (
@@ -52,13 +58,16 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
                 </div>
                 <div className={`absolute w-full h-full bg-green ${!even ? "" : "scale-x-[-1]"}`} />
                 <img
-                    src={`/public/images/${stylistFirstName}/${stylistFirstName}-profile.jpeg`}
+                    src={`/images/${stylistFirstName}/${stylistFirstName}-profile.jpeg`}
                     alt={`${stylistName} profile`}
                     className={`absolute max-w-full min-w-[75%] lg:w-[80%] h-full  object-cover ${
                         !even ? "right-0" : "scale-x-[-1] left-0"
                     } gradient-mask-l-10 `}
                 />
-                <Link className="z-50 absolute lg:hidden w-full h-full" href={`/stylists/${stylistName.split(" ")[0].toLowerCase()}`} />
+                <Link
+                    className="z-50 absolute lg:hidden w-full h-full"
+                    href={`/stylists/${stylistName.split(" ")[0].toLowerCase()}`}
+                />
             </div>
         </Reveal>
     );
