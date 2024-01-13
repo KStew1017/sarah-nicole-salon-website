@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 interface ProfilePictureProps {
     stylistName: string;
     even: boolean;
@@ -7,7 +5,7 @@ interface ProfilePictureProps {
 
 export const ProfilePicture: React.FC<ProfilePictureProps> = ({ stylistName, even }) => {
     return (
-        <Image
+        <img
             src={`/images/${stylistName}/${stylistName}-headshot.jpeg`}
             alt={`${stylistName} headshot`}
             className={`z-10 w-[90%] md:w-[75%] lg:w-[300px] lg:h-[300px] object-cover lg:absolute lg:rounded-full rounded-t-[50px] shadow-3xl ${

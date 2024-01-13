@@ -34,7 +34,7 @@ export const MeetUsSection: React.FC<MeetUsSectionProps> = ({ stylists }) => {
                 />
             </Reveal>
             <div className="flex-col flex justify-center items-center gap-[150px] lg:gap-[250px] lg:mt-[200px]">
-                {stylists.map((stylist, i) => (
+                {stylists.map((stylist, i) =>  (
                     <Profile
                         stylistName={stylist.name}
                         stylistQuote={stylist.quote}
