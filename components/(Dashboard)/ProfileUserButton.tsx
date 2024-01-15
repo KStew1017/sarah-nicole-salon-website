@@ -8,7 +8,7 @@ export const ProfileUserButton: React.FC<ProfileUserButtonProps> = ({ firstName 
     return (
         <div className="relative group flex justify-center">
             <img
-                src={`/images/${firstName}/${firstName}-headshot.jpeg`}
+                src={`/images/${firstName.toLowerCase()}/${firstName.toLowerCase()}-headshot.jpeg`}
                 alt={firstName}
                 className="w-[300px] h-[300px] rounded-full transition ease-s-curve group-hover:drop-shadow-xl group-hover:scale-105 group-hover:translate-y-[-10px] object-cover absolute"
             />

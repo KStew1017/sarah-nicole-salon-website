@@ -110,14 +110,3 @@ export default function Dashboard() {
     );
 }
 
-// - Home page quote
-// - Profile bio
-// - Services
-// - Payment methods
-// - Background icons
-// - Social media links
-// - Results pictures:
-//      - Upload pictures
-//      - Enforce file format and size
-//      - Upload to S3 bucket
-//      - Delete pictures
