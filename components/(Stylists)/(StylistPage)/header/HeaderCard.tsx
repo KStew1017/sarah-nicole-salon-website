@@ -7,7 +7,7 @@ interface HeaderCardProps {
 }
 
 export const HeaderCard: React.FC<HeaderCardProps> = ({ stylist }) => {
-    const stylistFirstName = stylist.name.split(" ")[0];
+    const stylistFirstName = stylist.name.split(" ")[0].toLowerCase();
 
     return (
         <motion.div

@@ -1,3 +1,5 @@
+"use client";
+
 import { SignIn } from "@clerk/nextjs";
 
 export default function Auth() {
@@ -22,7 +24,6 @@ export default function Auth() {
                         formFieldAction__password:
                             "text-green font-serif tracking-[2px] hover:text-green text-[10px] lg:text-[14px]",
                         footer: "hidden",
-                        
                     },
                 }}
                 afterSignInUrl={"/dashboard"}

@@ -15,7 +15,7 @@ export const OverviewCard: React.FC<OverviewCardProps> = ({
     even,
     buttonColors = ["#C3AC3C", "#E7DCA6"],
 }) => {
-    const stylistFirstName = stylistName.split(" ")[0];
+    const stylistFirstName = stylistName.split(" ")[0].toLowerCase();
 
     return (
         <Reveal
