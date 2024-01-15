@@ -36,7 +36,7 @@ export default function Dashboard() {
 
     const stylist = stylists.filter((stylist) => stylist.name === currentUser.user?.fullName);
     const name = stylist[0]?.name;
-    const firstName = stylist[0]?.name.split(" ")[0];
+    const firstName = stylist[0]?.name.split(" ")[0].toLowerCase();
     const quote = stylist[0]?.quote;
     const bio = stylist[0]?.bio;
     const services = stylist[0]?.services;
