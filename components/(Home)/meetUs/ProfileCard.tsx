@@ -1,6 +1,5 @@
 import { Button, Card, CardBody, CardFooter, CardHeader, Divider, Link } from "@nextui-org/react";
-import { set } from "mongoose";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface ProfileCardProps {
     buttonColors?: string[];
@@ -18,6 +17,8 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
     useEffect(() => {
         setQuote(stylistQuote);
     }, []);
+
+    console.log(quote)
 
     return (
         <Card
