@@ -60,6 +60,7 @@ export const Services: React.FC<ServicesProps> = ({ services, name }) => {
                     body: JSON.stringify({
                         services: editedList,
                     }),
+                    cache: "reload",
                 });
 
                 const data = await res.json();

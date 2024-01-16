@@ -9,6 +9,7 @@ interface ProfileProps {
 }
 
 export const Profile: React.FC<ProfileProps> = ({ stylistName, even, stylistQuote }) => {
+    console.log(stylistQuote);
     return (
         <Reveal
             hiddenVariant={!even ? "hiddenXNeg" : "hiddenXPos"}

@@ -21,6 +21,8 @@ export const metadata: Metadata = {
     },
 };
 
+export const fetchCache = 'force-no-store';
+
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
     return (
         <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>

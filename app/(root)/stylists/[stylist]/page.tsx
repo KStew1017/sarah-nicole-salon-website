@@ -36,7 +36,7 @@ export default function StylistPage({ params }: { params: { stylist: string } })
     useEffect(() => {
         const getStylists = async () => {
             try {
-                const res = await fetch("/api/db-get", { cache: 'no-store' });
+                const res = await fetch("/api/db-get");
                 const data = await res.json();
                 setStylists(data.stylists);
             } catch (error) {
@@ -67,7 +67,9 @@ export default function StylistPage({ params }: { params: { stylist: string } })
                     icon={faTriangleExclamation}
                 />
                 <h1 className="font-serif text-green text-[36px] md:text-[48px] mt-4">Stylist not found</h1>
-                <p className="font-serif text-green text-[14px] md:text-[18px] mt-4">Please check the URL and try again,</p>
+                <p className="font-serif text-green text-[14px] md:text-[18px] mt-4">
+                    Please check the URL and try again,
+                </p>
                 <p className="font-serif text-green text-[14px] md:text-[18px]">
                     or see our stylists{" "}
                     <a

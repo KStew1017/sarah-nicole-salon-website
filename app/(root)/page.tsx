@@ -9,6 +9,8 @@ import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
+export const fetchCache = 'force-no-store';
+
 export default function Home() {
     interface stylistsProps {
         _id: string;
@@ -25,7 +27,7 @@ export default function Home() {
     useEffect(() => {
         const getStylists = async () => {
             try {
-                const res = await fetch("/api/db-get", { cache: 'no-store' });
+                const res = await fetch("/api/db-get");
                 const data = await res.json();
                 setStylists(data.stylists);
             } catch (error) {

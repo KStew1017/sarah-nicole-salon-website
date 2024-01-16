@@ -22,7 +22,7 @@ export const ResultsSection: React.FC<ResultsSectionProps> = ({ stylist }) => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await fetch(`/api/s3-get/${stylistFirstName}`, { cache: 'no-store' });
+                const response = await fetch(`/api/s3-get/${stylistFirstName}`);
                 const data = await response.json();
                 setImages(data.urls);
             } catch (error) {

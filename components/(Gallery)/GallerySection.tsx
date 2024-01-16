@@ -23,7 +23,7 @@ export const GallerySection: React.FC = () => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await fetch(`/api/s3-get`, { cache: 'no-store' });
+                const response = await fetch(`/api/s3-get`);
                 const data = await response.json();
                 setImages(data.urls);
             } catch (error) {
@@ -33,25 +33,24 @@ export const GallerySection: React.FC = () => {
 
         fetchImages();
 
-    
-            const handleResize = () => {
-                const screenWidth = window.innerWidth;
-                if (screenWidth < 768) {
-                    setDisplayCount(6);
-                    setNumberOfImageToAdd(4);
-                } else {
-                    setDisplayCount(9);
-                    setNumberOfImageToAdd(6);
-                }
-            };
-    
-            handleResize();
-    
-            window.addEventListener("resize", handleResize);
-    
-            return () => {
-                window.removeEventListener("resize", handleResize);
+        const handleResize = () => {
+            const screenWidth = window.innerWidth;
+            if (screenWidth < 768) {
+                setDisplayCount(6);
+                setNumberOfImageToAdd(4);
+            } else {
+                setDisplayCount(9);
+                setNumberOfImageToAdd(6);
             }
+        };
+
+        handleResize();
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
     }, []);
 
     const handleImageClick = (index: any) => {

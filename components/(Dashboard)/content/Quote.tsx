@@ -48,6 +48,7 @@ export const Quote: React.FC<QuoteProps> = ({ quote, name }) => {
                     body: JSON.stringify({
                         quote: editedText,
                     }),
+                    cache: "reload",
                 });
 
                 const data = await res.json();

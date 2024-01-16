@@ -19,6 +19,8 @@ interface Stylist {
     icons: string[];
 }
 
+export const fetchCache = 'force-no-store';
+
 export default function Dashboard() {
     const currentUser = useUser();
     const [stylists, setStylists] = useState<Stylist[]>([]);
@@ -26,7 +28,7 @@ export default function Dashboard() {
 
     const fetchStylists = async () => {
         try {
-            const response = await fetch("/api/db-get", { cache: 'no-store' });
+            const response = await fetch("/api/db-get");
             const data = await response.json();
             setStylists(data.stylists);
         } catch (error) {
@@ -109,4 +111,3 @@ export default function Dashboard() {
         </>
     );
 }
-

@@ -49,6 +49,7 @@ export const PaymentMethods: React.FC<PaymentMethodsProps> = ({ paymentMethods, 
                 body: JSON.stringify({
                     paymentMethods: selected,
                 }),
+                cache: "reload",
             });
 
             const data = await res.json();
