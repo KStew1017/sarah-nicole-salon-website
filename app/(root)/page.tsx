@@ -1,4 +1,3 @@
-"use client";
 
 import { HeroSection } from "@/components/(Home)/hero/HeroSection";
 import { MeetUsSection } from "@/components/(Home)/meetUs/MeetUsSection";
@@ -8,6 +7,7 @@ import { LocationSection } from "@/components/(Home)/location/LocationSection";
 import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { GetServerSideProps } from "next";
 
 interface stylistsProps {
     _id: string;
@@ -18,6 +18,25 @@ interface stylistsProps {
     services: string[];
     icons: string[];
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    try {
+        const res = await fetch(`/api/db-get`);
+        const data = await res.json();
+        return {
+            props: {
+                initialStylists: data.stylists,
+            },
+        };
+    } catch (error) {
+        console.error(error);
+        return {
+            props: {
+                initialStylists: [],
+            },
+        };
+    }
+};
 
 export default function Home({ initialStylists }: { initialStylists: stylistsProps[] }) {
     const [stylists, setStylists] = useState<stylistsProps[]>(initialStylists);
