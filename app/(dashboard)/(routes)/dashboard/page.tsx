@@ -20,6 +20,7 @@ interface Stylist {
 }
 
 export const fetchCache = 'force-no-store';
+export const dynamic = 'force-dynamic'
 
 export default function Dashboard() {
     const currentUser = useUser();

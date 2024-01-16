@@ -11,6 +11,8 @@ import { ResultsSection } from "@/components/(Stylists)/(StylistPage)/results/Re
 import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 import { useState, useEffect } from "react";
 
+export const dynamic = 'force-dynamic'
+
 export default function StylistPage({ params }: { params: { stylist: string } }) {
     const [stylists, setStylists] = useState<stylistsProps[]>([]);
 

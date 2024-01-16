@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 };
 
 export const fetchCache = 'force-no-store';
+export const dynamic = 'force-dynamic'
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
     return (
