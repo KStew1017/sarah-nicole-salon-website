@@ -1,9 +1,6 @@
-"use client";
-
 import { Reveal } from "@/utlis/reveal";
 import { Heading } from "../../layout/Heading";
 import { Profile } from "./Profile";
-import { useEffect, useState } from "react";
 
 interface stylistsProps {
     _id: string;

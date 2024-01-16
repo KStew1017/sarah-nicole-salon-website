@@ -1,6 +1,5 @@
 import { Heading } from "../layout/Heading";
 import { OverviewCard } from "./OverviewCard";
-import { siteContent } from "@/configs/siteContent";
 import { Reveal } from "@/utlis/reveal";
 
 interface stylistsProps {

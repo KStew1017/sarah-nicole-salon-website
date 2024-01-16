@@ -12,6 +12,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
     stylistName,
     stylistQuote,
 }) => {
+    "use client";
     const [quote, setQuote] = useState("");
 
     useEffect(() => {

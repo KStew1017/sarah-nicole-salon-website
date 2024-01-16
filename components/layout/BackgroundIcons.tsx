@@ -1,6 +1,5 @@
-"use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { BackgroundIconsRow } from "./BackgroundIconsRow";
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 

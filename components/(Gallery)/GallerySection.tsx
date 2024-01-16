@@ -1,4 +1,3 @@
-"use client";
 
 import { useState, useEffect } from "react";
 import { useDisclosure } from "@nextui-org/react";
@@ -13,6 +12,7 @@ interface ImagesProps {
 }
 
 export const GallerySection: React.FC = () => {
+    "use client";
     const [images, setImages] = useState<ImagesProps[]>([]);
     const [displayCount, setDisplayCount] = useState(0);
     const [numberOfImageToAdd, setNumberOfImageToAdd] = useState(0);
