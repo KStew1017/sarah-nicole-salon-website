@@ -1,5 +1,3 @@
-"use client";
-
 import { HeroSection } from "@/components/(Home)/hero/HeroSection";
 import { MeetUsSection } from "@/components/(Home)/meetUs/MeetUsSection";
 import { AnimatedDivider } from "@/components/layout/AnimatedDivder";
@@ -7,37 +5,41 @@ import { TestimonialsSection } from "@/components/(Home)/testimonials/Testimonia
 import { LocationSection } from "@/components/(Home)/location/LocationSection";
 import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { GetServerSideProps } from "next";
 
-export default function Home() {
-    interface stylistsProps {
-        _id: string;
-        name: string;
-        quote: string;
-        bio: string;
-        paymentMethods: string[];
-        services: string[];
-        icons: string[];
+interface stylistsProps {
+    _id: string;
+    name: string;
+    quote: string;
+    bio: string;
+    paymentMethods: string[];
+    services: string[];
+    icons: string[];
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    try {
+        const res = await fetch(`/api/db-get`);
+        const data = await res.json();
+        return {
+            props: {
+                initialStylists: data.stylists,
+            },
+        };
+    } catch (error) {
+        console.error(error);
+        return {
+            props: {
+                initialStylists: [],
+            },
+        };
     }
+};
 
-    const [stylists, setStylists] = useState<stylistsProps[]>([]);
+export default function Home({ initialStylists }: { initialStylists: stylistsProps[] }) {
+    const [stylists, setStylists] = useState<stylistsProps[]>(initialStylists);
 
-    const getStylists = async () => {
-        try {
-            const res = await fetch("/api/db-get");
-            const data = await res.json();
-            setStylists(data.stylists);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    useEffect(() => {
-        getStylists();
-    }, []);
-
-    console.log(stylists);
-    
     return (
         <>
             <BackgroundIcons
