@@ -30,8 +30,7 @@ export async function GET(req: NextRequest, res: NextApiResponse) {
         });
 
         const data = await s3Client.send(listCommand);
-
-        const fileKeys = data.Contents?.map(file => file.Key) || [];
+        const fileKeys = data.Contents?.filter(file => !file.Key?.endsWith('/')).map(file => file.Key) || [];
 
         const urls = await Promise.all(
             fileKeys.map(async (key) => {

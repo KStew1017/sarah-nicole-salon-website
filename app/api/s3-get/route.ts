@@ -37,8 +37,6 @@ export async function GET(req: NextRequest, res: NextApiResponse) {
                     if (!file.Key) {
                         throw new Error("File object does not have a Key property");
                     }
-
-                    // Skip directories
                     if (file.Key.endsWith("/")) {
                         return null;
                     }
