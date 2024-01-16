@@ -127,6 +127,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
         } catch (error) {
             console.log(error);
         }
+        images.splice(images.indexOf(imageKey), 1);
     };
 
     const handleCancelUpload = () => {
@@ -203,7 +204,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
                                                     onOpenChange={onOpenChange}
                                                     backdrop="opaque"
                                                     classNames={{
-                                                        base: "bg-tan text-green font-serif text-[20px]",
+                                                        base: "bg-tan text-green font-serif text-[20px] flex my-auto",
                                                         backdrop: "bg-light/10",
                                                         header: "border-b-[1px] border-[#292f46]",
                                                         body: "py-[25px] px-[50px]",
@@ -226,14 +227,14 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
                                                                         Cancel
                                                                     </Button>
                                                                     <Button
-                                                                        onPress={() =>
+                                                                        onPress={() => {
                                                                             handleRemoveImage(
                                                                                 url.split("/").pop()?.split("?")[0] ||
-                                                                                    ""
+                                                                                ""
                                                                             )
-                                                                                .then(handleFetchImages)
-                                                                                .then(onClose)
-                                                                        }
+                                                                            handleFetchImages
+                                                                            onClose
+                                                                        }}
                                                                         className="hover:bg-tan hover:shadow-lg bg-green hover:border-2 hover:border-green hover:text-green text-light font-serif text-[20px] w-fit"
                                                                     >
                                                                         Confirm
