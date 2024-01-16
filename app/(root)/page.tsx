@@ -1,3 +1,5 @@
+"use client";
+
 import { HeroSection } from "@/components/(Home)/hero/HeroSection";
 import { MeetUsSection } from "@/components/(Home)/meetUs/MeetUsSection";
 import { AnimatedDivider } from "@/components/layout/AnimatedDivder";
@@ -38,7 +40,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 export default function Home({ initialStylists }: { initialStylists: stylistsProps[] }) {
-    "use client";
     const [stylists, setStylists] = useState<stylistsProps[]>(initialStylists);
 
     return (
