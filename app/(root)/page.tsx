@@ -1,4 +1,3 @@
-import { GetServerSideProps } from "next";
 import { HeroSection } from "@/components/(Home)/hero/HeroSection";
 import { MeetUsSection } from "@/components/(Home)/meetUs/MeetUsSection";
 import { AnimatedDivider } from "@/components/layout/AnimatedDivder";
@@ -7,6 +6,7 @@ import { LocationSection } from "@/components/(Home)/location/LocationSection";
 import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
+import { GetServerSideProps } from "next";
 
 interface StylistsProps {
     _id: string;
@@ -38,6 +38,8 @@ export default function Home({ stylists: initialStylists }: HomeProps) {
 
         fetchData();
     }, []);
+
+    ("use client");
 
     return (
         <>
