@@ -230,10 +230,10 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
                                                                         onPress={() => {
                                                                             handleRemoveImage(
                                                                                 url.split("/").pop()?.split("?")[0] ||
-                                                                                ""
+                                                                                    ""
                                                                             )
-                                                                            handleFetchImages
-                                                                            onClose
+                                                                                .then(handleFetchImages)
+                                                                                .then(onClose);
                                                                         }}
                                                                         className="hover:bg-tan hover:shadow-lg bg-green hover:border-2 hover:border-green hover:text-green text-light font-serif text-[20px] w-fit"
                                                                     >
