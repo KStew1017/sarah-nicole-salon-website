@@ -5,8 +5,6 @@ interface ProfileUserButtonProps {
 }
 
 export const ProfileUserButton: React.FC<ProfileUserButtonProps> = ({ firstName }) => {
-    "use client";
-
     return (
         <div className="relative group flex justify-center">
             <img

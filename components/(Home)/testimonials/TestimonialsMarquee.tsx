@@ -1,12 +1,11 @@
 import Marquee from "react-fast-marquee";
 import { siteContent } from "@/configs/siteContent";
+import React from "react";
 import { faPlayCircle, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 
 export const TestimonialsMarquee = () => {
-    "use cleint";
-    const [play, setPlay] = useState(true);
+    const [play, setPlay] = React.useState(true);
 
     return (
         <div className="flex flex-col justify-center items-center">

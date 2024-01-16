@@ -1,15 +1,14 @@
 import { Button, Divider, ModalContent } from "@nextui-org/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Modal, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
+import { Modal, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
+import tailwindCustomColors from "@/utlis/customColors";
 
 interface ImageUploadProps {
     name: string;
 }
 
 export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
-    "use client";
-
     const [images, setImages] = useState<string[]>([]);
     const [uploadedImages, setUploadedImages] = useState<File[]>([]);
     const [isAddingImages, setIsAddingImages] = useState(false);
@@ -24,7 +23,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
 
         const fetchImages = async () => {
             try {
-                const response = await fetch(`/api/s3-get/${firstName}`, { cache: 'no-store' });
+                const response = await fetch(`/api/s3-get/${firstName}`);
                 const data = await response.json();
                 const imageUrls = data.urls;
                 setImages(imageUrls.splice(1, imageUrls.length - 1));
@@ -39,7 +38,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
 
     const handleFetchImages = async () => {
         try {
-            const response = await fetch(`/api/s3-get/${firstName}`, { cache: 'no-store' });
+            const response = await fetch(`/api/s3-get/${firstName}`);
             const data = await response.json();
             const imageUrls = data.urls;
             setImages(imageUrls.splice(1, imageUrls.length - 1));
@@ -128,7 +127,6 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
         } catch (error) {
             console.log(error);
         }
-        images.splice(images.indexOf(imageKey), 1);
     };
 
     const handleCancelUpload = () => {
@@ -205,7 +203,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
                                                     onOpenChange={onOpenChange}
                                                     backdrop="opaque"
                                                     classNames={{
-                                                        base: "bg-tan text-green font-serif text-[20px] flex my-auto",
+                                                        base: "bg-tan text-green font-serif text-[20px]",
                                                         backdrop: "bg-light/10",
                                                         header: "border-b-[1px] border-[#292f46]",
                                                         body: "py-[25px] px-[50px]",
@@ -228,15 +226,14 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
                                                                         Cancel
                                                                     </Button>
                                                                     <Button
-                                                                        onPress={() => {
+                                                                        onPress={() =>
                                                                             handleRemoveImage(
                                                                                 url.split("/").pop()?.split("?")[0] ||
                                                                                     ""
                                                                             )
-                                                                                handleFetchImages
-                                                                                onClose
-                                                                                setIsRemovingImages(false);
-                                                                        }}
+                                                                                .then(handleFetchImages)
+                                                                                .then(onClose)
+                                                                        }
                                                                         className="hover:bg-tan hover:shadow-lg bg-green hover:border-2 hover:border-green hover:text-green text-light font-serif text-[20px] w-fit"
                                                                     >
                                                                         Confirm

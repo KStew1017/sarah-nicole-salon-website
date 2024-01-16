@@ -7,8 +7,6 @@ interface StylistHeaderProps {
 }
 
 export const StylistHeader: React.FC<StylistHeaderProps> = ({ stylist }) => {
-    "use client";
-
     return (
         <motion.div
             initial={{ opacity: 0 }}

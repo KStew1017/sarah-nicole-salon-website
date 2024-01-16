@@ -1,3 +1,4 @@
+"use client";
 
 import React from "react";
 import {
@@ -22,7 +23,6 @@ import tailwindCustomColors from "@/utlis/customColors";
 import { UserButton, useUser } from "@clerk/nextjs";
 
 export const Navbar: React.FC = () => {
-    "use client";
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
 

@@ -1,9 +1,10 @@
+"use client";
+
 import { Carousel } from "./Carousel";
 import { MissionStatement } from "./MissionStatement";
 import { motion } from "framer-motion";
 
 export const HeroSection: React.FC = () => {
-    "use client";
     return (
         <motion.div
             initial={{ opacity: 0 }}

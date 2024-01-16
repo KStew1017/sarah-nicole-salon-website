@@ -5,13 +5,12 @@ import { useDisclosure } from "@nextui-org/react";
 import ImageGrid from "@/components/layout/ImageGrid";
 import ImageModal from "@/components/layout/ImageModal";
 
+
 interface ResultsSectionProps {
     stylist: StylistType;
 }
 
 export const ResultsSection: React.FC<ResultsSectionProps> = ({ stylist }) => {
-    "use client";
-
     const [images, setImages] = useState([]);
     const [displayCount, setDisplayCount] = useState(0);
     const [numberOfImageToAdd, setNumberOfImageToAdd] = useState(0);

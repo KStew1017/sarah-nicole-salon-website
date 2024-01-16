@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
@@ -6,7 +8,6 @@ import { carouselImages } from "@/utlis/carouselImages";
 import { motion } from "framer-motion";
 
 export const Carousel: React.FC = () => {
-    "use client";
     const [sliderRef] = useKeenSlider<HTMLDivElement>(
         {
             loop: true,

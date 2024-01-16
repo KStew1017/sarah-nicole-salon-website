@@ -2,7 +2,6 @@ import { Heading } from "../../layout/Heading";
 import { TestimonialsMarquee } from "./TestimonialsMarquee";
 
 export const TestimonialsSection = () => {
-    "use client";
     return (
         <div
             id="testimonials"

@@ -14,8 +14,6 @@ interface BackgroundIconsRowProps {
 }
 
 export const BackgroundIconsRow: React.FC<BackgroundIconsRowProps> = ({ row, rows, icon1, icon2, icon3 }) => {
-    "use client";
-
     const [scrollPosition, setScrollPosition] = useState(0);
     const iconRotateFactor = Array(rows).fill([0.1, 0.18, 0.12, 0.08, 0.04, 0.1, 0.18, 0.12, 0.08, 0.07]);
     const iconTranslateYFactors = [

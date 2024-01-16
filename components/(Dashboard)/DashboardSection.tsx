@@ -18,8 +18,6 @@ export const DashboardSection: React.FC<DashboardSectionProps> = ({
     services,
     paymentMethods,
 }) => {
-    "use client";
-
     return (
         <div className="flex-row justify-center w-[90%]">
             <ProfileUserButton firstName={firstName} />

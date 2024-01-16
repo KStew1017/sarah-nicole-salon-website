@@ -2,8 +2,6 @@ import { motion } from "framer-motion";
 import { Divider } from "@nextui-org/react";
 
 export const AnimatedDivider: React.FC = () => {
-    "use client";
-
     return (
         <motion.div
             initial={{ opacity: 0 }}

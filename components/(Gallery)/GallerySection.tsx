@@ -33,24 +33,25 @@ export const GallerySection: React.FC = () => {
 
         fetchImages();
 
-        const handleResize = () => {
-            const screenWidth = window.innerWidth;
-            if (screenWidth < 768) {
-                setDisplayCount(6);
-                setNumberOfImageToAdd(4);
-            } else {
-                setDisplayCount(9);
-                setNumberOfImageToAdd(6);
+    
+            const handleResize = () => {
+                const screenWidth = window.innerWidth;
+                if (screenWidth < 768) {
+                    setDisplayCount(6);
+                    setNumberOfImageToAdd(4);
+                } else {
+                    setDisplayCount(9);
+                    setNumberOfImageToAdd(6);
+                }
+            };
+    
+            handleResize();
+    
+            window.addEventListener("resize", handleResize);
+    
+            return () => {
+                window.removeEventListener("resize", handleResize);
             }
-        };
-
-        handleResize();
-
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
     }, []);
 
     const handleImageClick = (index: any) => {

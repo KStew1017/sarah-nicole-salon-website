@@ -17,7 +17,6 @@ interface StylistsSectionProps {
 }
 
 export const StylistsSection: React.FC<StylistsSectionProps> = ({ stylists }) => {
-    "use client";
     return (
         <div className="max-w-[1250px] mx-auto">
             <Reveal

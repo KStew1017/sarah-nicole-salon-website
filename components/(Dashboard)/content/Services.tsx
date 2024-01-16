@@ -9,8 +9,6 @@ interface ServicesProps {
 }
 
 export const Services: React.FC<ServicesProps> = ({ services, name }) => {
-    "use client";
-
     const [listState, setListState] = useState<string[]>([]);
     const [editedList, setEditedList] = useState<string[]>([]);
     const [saveSuccess, setSaveSuccess] = useState(false);
@@ -62,7 +60,6 @@ export const Services: React.FC<ServicesProps> = ({ services, name }) => {
                     body: JSON.stringify({
                         services: editedList,
                     }),
-                    cache: "reload",
                 });
 
                 const data = await res.json();

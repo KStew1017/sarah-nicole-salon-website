@@ -14,11 +14,9 @@ interface PaymentMethodsProps {
 }
 
 export const PaymentMethods: React.FC<PaymentMethodsProps> = ({ paymentMethods, name }) => {
-    "use client";
-
     const [selected, setSelected] = useState(paymentMethods || []);
     const [saveSuccess, setSaveSuccess] = useState(false);
-    const [exitAnimation, setExitAnimation] = useState(false);
+    const [exitAnimation, setExitAnimation] = useState(false); // Used to trigger exit animation on save success
     const [isLoaded, setIsLoaded] = useState(false);
     const [svgHeight, setHeight] = useState(0);
 
@@ -51,7 +49,6 @@ export const PaymentMethods: React.FC<PaymentMethodsProps> = ({ paymentMethods, 
                 body: JSON.stringify({
                     paymentMethods: selected,
                 }),
-                cache: "reload",
             });
 
             const data = await res.json();

@@ -5,8 +5,8 @@ import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
-
 export default function Stylists() {
+
     interface stylistsProps {
         _id: string;
         name: string;
@@ -31,7 +31,7 @@ export default function Stylists() {
         };
         getStylists();
     }, []);
-
+    
     return (
         <>
             <BackgroundIcons

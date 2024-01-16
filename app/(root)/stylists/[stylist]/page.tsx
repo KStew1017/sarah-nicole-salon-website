@@ -67,9 +67,7 @@ export default function StylistPage({ params }: { params: { stylist: string } })
                     icon={faTriangleExclamation}
                 />
                 <h1 className="font-serif text-green text-[36px] md:text-[48px] mt-4">Stylist not found</h1>
-                <p className="font-serif text-green text-[14px] md:text-[18px] mt-4">
-                    Please check the URL and try again,
-                </p>
+                <p className="font-serif text-green text-[14px] md:text-[18px] mt-4">Please check the URL and try again,</p>
                 <p className="font-serif text-green text-[14px] md:text-[18px]">
                     or see our stylists{" "}
                     <a

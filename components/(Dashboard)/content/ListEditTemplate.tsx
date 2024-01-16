@@ -1,5 +1,6 @@
 import { Button, Textarea } from "@nextui-org/react";
 
+
 interface ListEditTemplateProps {
     listState: string[];
     editedList: string[];
@@ -27,8 +28,6 @@ export const ListEditTemplate: React.FC<ListEditTemplateProps> = ({
     handleRemoveLastItem,
     maxItems,
 }) => {
-    "use client";
-
     return (
         <>
             {isEditing ? (

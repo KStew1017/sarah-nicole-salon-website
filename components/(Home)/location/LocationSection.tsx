@@ -4,7 +4,6 @@ import { Reveal } from "@/utlis/reveal";
 import React from "react";
 
 export const LocationSection: React.FC = () => {
-    "use client";
     return (
         <div
             id="location"

@@ -20,7 +20,6 @@ interface Stylist {
 }
 
 export default function Dashboard() {
-
     const currentUser = useUser();
     const [stylists, setStylists] = useState<Stylist[]>([]);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -110,3 +109,4 @@ export default function Dashboard() {
         </>
     );
 }
+

@@ -11,8 +11,6 @@ interface AppointmentsCardProps {
 }
 
 export const AppointmentsCard: React.FC<AppointmentsCardProps> = ({ stylist }) => {
-    "use client";
-
     const stylistFirstName = stylist.name.split(" ")[0];
     const [svgHeight, setHeight] = useState(0);
     const [svgWidth, setWidth] = useState(0);

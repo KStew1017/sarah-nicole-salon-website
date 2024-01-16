@@ -14,8 +14,6 @@ interface ProfileContentProps {
 }
 
 export const ProfileContent: React.FC<ProfileContentProps> = ({ name, quote, bio, services, paymentMethods }) => {
-    "use client";
-
     const firstName: string = name?.split(" ")[0].toLowerCase();
 
     return (

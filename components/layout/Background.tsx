@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 
 export const Background: React.FC = () => {
-
     const [scrollPosition, setScrollPosition] = useState(0);
 
     const handleScroll = () => {
