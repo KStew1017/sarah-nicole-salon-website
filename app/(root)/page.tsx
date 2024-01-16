@@ -22,16 +22,17 @@ export default function Home() {
 
     const [stylists, setStylists] = useState<stylistsProps[]>([]);
 
+    const getStylists = async () => {
+        try {
+            const res = await fetch("/api/db-get");
+            const data = await res.json();
+            setStylists(data.stylists);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     useEffect(() => {
-        const getStylists = async () => {
-            try {
-                const res = await fetch("/api/db-get");
-                const data = await res.json();
-                setStylists(data.stylists);
-            } catch (error) {
-                console.log(error);
-            }
-        };
         getStylists();
     }, []);
 
