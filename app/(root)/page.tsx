@@ -8,7 +8,6 @@ import { LocationSection } from "@/components/(Home)/location/LocationSection";
 import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { getServerSideProps } from "@/utlis/serverSideProps";
 
 interface stylistsProps {
     _id: string;
@@ -19,8 +18,6 @@ interface stylistsProps {
     services: string[];
     icons: string[];
 }
-
-export { getServerSideProps };
 
 export default function Home({ initialStylists }: { initialStylists: stylistsProps[] }) {
     const [stylists, setStylists] = useState<stylistsProps[]>(initialStylists);
