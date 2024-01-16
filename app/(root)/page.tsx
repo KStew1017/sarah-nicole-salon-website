@@ -38,6 +38,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 export default function Home({ initialStylists }: { initialStylists: stylistsProps[] }) {
+    "use client";
     const [stylists, setStylists] = useState<stylistsProps[]>(initialStylists);
 
     return (
