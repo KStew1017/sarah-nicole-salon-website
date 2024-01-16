@@ -23,7 +23,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
 
         const fetchImages = async () => {
             try {
-                const response = await fetch(`/api/s3-get/${firstName}`);
+                const response = await fetch(`/api/s3-get/${firstName}`, { cache: 'no-store' });
                 const data = await response.json();
                 const imageUrls = data.urls;
                 setImages(imageUrls.splice(1, imageUrls.length - 1));
@@ -38,7 +38,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
 
     const handleFetchImages = async () => {
         try {
-            const response = await fetch(`/api/s3-get/${firstName}`);
+            const response = await fetch(`/api/s3-get/${firstName}`, { cache: 'no-store' });
             const data = await response.json();
             const imageUrls = data.urls;
             setImages(imageUrls.splice(1, imageUrls.length - 1));

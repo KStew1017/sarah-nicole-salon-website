@@ -22,7 +22,7 @@ export default function Stylists() {
     useEffect(() => {
         const getStylists = async () => {
             try {
-                const res = await fetch("/api/db-get");
+                const res = await fetch("/api/db-get", { cache: 'no-store' });
                 const data = await res.json();
                 setStylists(data.stylists);
             } catch (error) {

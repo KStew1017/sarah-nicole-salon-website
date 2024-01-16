@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import Loading from "@/components/layout/Loading";
 import { Reveal } from "@/utlis/reveal";
@@ -26,7 +26,7 @@ export default function Dashboard() {
 
     const fetchStylists = async () => {
         try {
-            const response = await fetch("/api/db-get");
+            const response = await fetch("/api/db-get", { cache: 'no-store' });
             const data = await response.json();
             setStylists(data.stylists);
         } catch (error) {
@@ -45,7 +45,7 @@ export default function Dashboard() {
     useEffect(() => {
         fetchStylists();
         setIsLoaded(true);
-    });
+    }, []);
 
     let icon1;
     let icon2;
@@ -109,3 +109,4 @@ export default function Dashboard() {
         </>
     );
 }
+

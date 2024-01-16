@@ -23,7 +23,7 @@ export const GallerySection: React.FC = () => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await fetch(`/api/s3-get`);
+                const response = await fetch(`/api/s3-get`, { cache: 'no-store' });
                 const data = await response.json();
                 setImages(data.urls);
             } catch (error) {

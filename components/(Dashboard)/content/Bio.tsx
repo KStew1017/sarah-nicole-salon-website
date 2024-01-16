@@ -48,6 +48,7 @@ export const Bio: React.FC<BioProps> = ({ bio, name }) => {
                     body: JSON.stringify({
                         bio: editedText,
                     }),
+                    cache: "no-store",
                 });
 
                 const data = await res.json();

@@ -10,18 +10,7 @@ const nextConfig = {
                 port: "",
             },
         ],
-    },
-    headers: () => [
-        {
-            source: "/:path*",
-            headers: [
-                {
-                    key: "Cache-Control",
-                    value: "no-store",
-                },
-            ],
-        },
-    ],
+    }
 };
 
 module.exports = nextConfig;

@@ -36,7 +36,7 @@ export default function StylistPage({ params }: { params: { stylist: string } })
     useEffect(() => {
         const getStylists = async () => {
             try {
-                const res = await fetch("/api/db-get");
+                const res = await fetch("/api/db-get", { cache: 'no-store' });
                 const data = await res.json();
                 setStylists(data.stylists);
             } catch (error) {
