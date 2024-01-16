@@ -1,4 +1,3 @@
-"use client";
 
 import { siteContent } from "@/configs/siteContent";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +11,7 @@ import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 import { useState, useEffect } from "react";
 
 export default function StylistPage({ params }: { params: { stylist: string } }) {
+    "use client";
     const [stylists, setStylists] = useState<stylistsProps[]>([]);
 
     const filteredStylists = siteContent.stylists.filter(

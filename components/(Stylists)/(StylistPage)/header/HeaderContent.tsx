@@ -7,6 +7,8 @@ interface HeaderContentProps {
 }
 
 export const HeaderContent: React.FC<HeaderContentProps> = ({ stylist }) => {
+    "use client";
+
     const bioParagraphs = stylist.bio.split("\n").map((line, index) => (
         <div
             key={index}

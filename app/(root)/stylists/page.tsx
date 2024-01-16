@@ -1,4 +1,3 @@
-"use client";
 
 import { StylistsSection } from "@/components/(Stylists)/StylistsSection";
 import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
@@ -7,6 +6,7 @@ import { useEffect, useState } from "react";
 
 
 export default function Stylists() {
+    "use client";
     interface stylistsProps {
         _id: string;
         name: string;

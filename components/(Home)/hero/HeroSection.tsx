@@ -1,4 +1,3 @@
-
 import { Carousel } from "./Carousel";
 import { MissionStatement } from "./MissionStatement";
 import { motion } from "framer-motion";

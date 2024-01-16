@@ -1,6 +1,4 @@
 import { Button, Textarea } from "@nextui-org/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmarkCircle } from "@fortawesome/free-solid-svg-icons";
 
 interface ListEditTemplateProps {
     listState: string[];
@@ -29,6 +27,8 @@ export const ListEditTemplate: React.FC<ListEditTemplateProps> = ({
     handleRemoveLastItem,
     maxItems,
 }) => {
+    "use client";
+
     return (
         <>
             {isEditing ? (

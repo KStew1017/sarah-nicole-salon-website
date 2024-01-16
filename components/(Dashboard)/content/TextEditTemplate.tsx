@@ -23,6 +23,8 @@ export const TextEditTemplate: React.FC<TextEditTemplateProps> = ({
     handleCancel,
     maxChars
 }) => {
+    "use client";
+
     return (
         <>
             {isEditing ? (

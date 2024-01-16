@@ -1,4 +1,3 @@
-
 import React from "react";
 import { BackgroundIconsRow } from "./BackgroundIconsRow";
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
@@ -11,6 +10,8 @@ interface HomeBackgroundIconsProps {
 }
 
 export const BackgroundIcons: React.FC<HomeBackgroundIconsProps> = ({ rows, icon1, icon2, icon3 }) => {
+    "use client";
+
     return (
         <div
             style={{

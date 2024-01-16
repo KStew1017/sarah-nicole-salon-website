@@ -1,4 +1,3 @@
-"use client";
 
 import React, { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
@@ -7,13 +6,13 @@ interface Props {
     children: JSX.Element | React.ReactNode;
     hiddenVariant: "hiddenY" | "hiddenYShort" | "hiddenFade" | "hiddenXPos" | "hiddenXNeg" | "hiddenScale" | "none";
     visibleVariant:
-        | "visibleY"
-        | "visibleYShort"
-        | "visibleFade"
-        | "visibleXPos"
-        | "visibleXNeg"
-        | "visibleScale"
-        | "none";
+    | "visibleY"
+    | "visibleYShort"
+    | "visibleFade"
+    | "visibleXPos"
+    | "visibleXNeg"
+    | "visibleScale"
+    | "none";
     delay?: number;
     styling?: string;
     isMobile?: boolean;
@@ -21,6 +20,7 @@ interface Props {
 }
 
 export const Reveal = ({ children, hiddenVariant, visibleVariant = "none", styling, delay, isMobile, motionDivStyling }: Props) => {
+    "use client";
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     const controls = useAnimation();

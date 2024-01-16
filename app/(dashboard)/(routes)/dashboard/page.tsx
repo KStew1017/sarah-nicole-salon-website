@@ -1,4 +1,3 @@
-"use client";
 
 import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
@@ -20,6 +19,8 @@ interface Stylist {
 }
 
 export default function Dashboard() {
+    "use client";
+    
     const currentUser = useUser();
     const [stylists, setStylists] = useState<Stylist[]>([]);
     const [isLoaded, setIsLoaded] = useState(false);

@@ -7,6 +7,8 @@ interface HeaderCardProps {
 }
 
 export const HeaderCard: React.FC<HeaderCardProps> = ({ stylist }) => {
+    "use client";
+
     const stylistFirstName = stylist.name.split(" ")[0].toLowerCase();
 
     return (

@@ -1,14 +1,15 @@
 import { Button, Divider, ModalContent } from "@nextui-org/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Modal, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
-import tailwindCustomColors from "@/utlis/customColors";
+import { Modal, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
 
 interface ImageUploadProps {
     name: string;
 }
 
 export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
+    "use client";
+
     const [images, setImages] = useState<string[]>([]);
     const [uploadedImages, setUploadedImages] = useState<File[]>([]);
     const [isAddingImages, setIsAddingImages] = useState(false);

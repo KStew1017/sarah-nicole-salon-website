@@ -17,6 +17,7 @@ interface MeetUsSectionProps {
 }
 
 export const MeetUsSection: React.FC<MeetUsSectionProps> = ({ stylists }) => {
+    "use client";
     return (
         <div className="max-w-[1250px] mx-auto">
             <Reveal

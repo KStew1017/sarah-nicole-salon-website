@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useDisclosure } from "@nextui-org/react";
 import { Heading } from "../layout/Heading";

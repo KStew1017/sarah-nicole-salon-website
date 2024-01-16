@@ -9,6 +9,8 @@ interface AppointmentsSectionProps {
 }
 
 export const AppointmentsSection: React.FC<AppointmentsSectionProps> = ({ stylist }) => {
+    "use client";
+
     return (
         <div
             className="flex flex-col items-center relative w-full max-w-[1250px] justify-center mx-auto my-[50px] lg:my-[200px]"

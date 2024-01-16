@@ -1,8 +1,8 @@
-"use client";
 
 import { SignIn } from "@clerk/nextjs";
 
 export default function Auth() {
+    "use client";
     return (
         <div className="flex items-center relative justify-center mx-auto ">
             <SignIn

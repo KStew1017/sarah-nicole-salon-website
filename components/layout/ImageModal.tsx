@@ -24,6 +24,8 @@ const getImageSrc = (image: ImagesProps | string): string => {
 };
 
 const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onOpenChange, selectedImageIndex, images, isLoaded }) => {
+    "use client";
+
     return (
         <Modal
             isOpen={isOpen}

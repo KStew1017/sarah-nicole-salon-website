@@ -2,6 +2,7 @@ import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@n
 import { motion } from "framer-motion";
 
 export const MissionStatement: React.FC = () => {
+    "use client";
     return (
         <motion.div
             initial={{ y: 200 }}

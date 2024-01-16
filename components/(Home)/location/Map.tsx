@@ -2,6 +2,7 @@ import { Reveal } from "@/utlis/reveal";
 import React from "react";
 
 export const Map: React.FC = () => {
+    "use client";
     return (
         <Reveal
             hiddenVariant="hiddenXPos"

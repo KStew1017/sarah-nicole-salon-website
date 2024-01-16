@@ -23,6 +23,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({
     gallery,
     displayCount,
 }) => {
+    "use client";
 
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 grid-flow-row gap-[25px] md:gap-[75px] lg:gap-[100px]">

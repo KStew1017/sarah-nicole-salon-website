@@ -9,6 +9,8 @@ interface ServicesListProps {
 }
 
 const AnimatedLetter: React.FC<{ letter: string }> = ({ letter }) => {
+    "use client";
+
     const [ref, inView] = useInView({
         triggerOnce: true,
     });

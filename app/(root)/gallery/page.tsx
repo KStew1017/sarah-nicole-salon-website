@@ -4,6 +4,8 @@ import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-s
 
 
 export default function Home() {
+    "use client";
+
     return (
         <>
             <BackgroundIcons

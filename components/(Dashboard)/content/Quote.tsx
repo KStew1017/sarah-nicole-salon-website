@@ -9,10 +9,12 @@ interface QuoteProps {
 }
 
 export const Quote: React.FC<QuoteProps> = ({ quote, name }) => {
+    "use client";
+
     const [textState, setTextState] = useState("");
     const [editedText, setEditedText] = useState("");
     const [saveSuccess, setSaveSuccess] = useState(false);
-    const [exitAnimation, setExitAnimation] = useState(false); // Used to trigger exit animation on save success
+    const [exitAnimation, setExitAnimation] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [isTooLong, setIsTooLong] = useState(false);
 
