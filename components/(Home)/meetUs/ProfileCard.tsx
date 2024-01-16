@@ -1,5 +1,6 @@
 import { Button, Card, CardBody, CardFooter, CardHeader, Divider, Link } from "@nextui-org/react";
-import React from "react";
+import { set } from "mongoose";
+import React, { use, useEffect, useState } from "react";
 
 interface ProfileCardProps {
     buttonColors?: string[];
@@ -12,6 +13,12 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
     stylistName,
     stylistQuote,
 }) => {
+    const [quote, setQuote] = useState("");
+
+    useEffect(() => {
+        setQuote(stylistQuote);
+    }, []);
+
     return (
         <Card
             className="w-[90%] md:w-[75%] rounded-b-[50px] rounded-t-[0px] lg:w-[60%] lg:h-[400px] lg:rounded-[50px] bg-gradient-to-bl from-green to-blue"
@@ -25,7 +32,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
                 <p className="font-northwell text-light text-[200px] absolute translate-x-[-325px] translate-y-[50px] max-xl:hidden">
                     &quot;
                 </p>
-                <p className="font-serif text-light text-[18px] lg:text-[22px] text-center w-[80%]">{stylistQuote}</p>
+                <p className="font-serif text-light text-[18px] lg:text-[22px] text-center w-[80%]">{quote}</p>
                 <p className="font-northwell text-light text-[200px] absolute translate-x-[325px] translate-y-[50px] transform scale-x-[-1] max-xl:hidden">
                     &quot;
                 </p>

@@ -19,9 +19,6 @@ interface Stylist {
     icons: string[];
 }
 
-export const fetchCache = 'force-no-store';
-export const dynamic = 'force-dynamic'
-
 export default function Dashboard() {
     const currentUser = useUser();
     const [stylists, setStylists] = useState<Stylist[]>([]);

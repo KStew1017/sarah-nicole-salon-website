@@ -9,9 +9,6 @@ import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
-export const fetchCache = 'force-no-store';
-export const dynamic = 'force-dynamic';
-
 export default function Home() {
     interface stylistsProps {
         _id: string;
