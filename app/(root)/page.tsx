@@ -1,4 +1,3 @@
-"use client";
 
 import { HeroSection } from "@/components/(Home)/hero/HeroSection";
 import { MeetUsSection } from "@/components/(Home)/meetUs/MeetUsSection";
@@ -21,6 +20,7 @@ interface stylistsProps {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
+    "use server";
     try {
         const res = await fetch(`/api/db-get`);
         const data = await res.json();
@@ -40,6 +40,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 export default function Home({ initialStylists }: { initialStylists: stylistsProps[] }) {
+    "use client";
     const [stylists, setStylists] = useState<stylistsProps[]>(initialStylists);
 
     return (

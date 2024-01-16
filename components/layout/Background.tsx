@@ -1,7 +1,8 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 
 export const Background: React.FC = () => {
-    "use client";
 
     const [scrollPosition, setScrollPosition] = useState(0);
 
