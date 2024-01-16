@@ -45,7 +45,7 @@ export default function Dashboard() {
     useEffect(() => {
         fetchStylists();
         setIsLoaded(true);
-    }, []);
+    });
 
     let icon1;
     let icon2;
