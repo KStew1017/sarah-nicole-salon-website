@@ -1,6 +1,4 @@
 import { Textarea, Button } from "@nextui-org/react";
-import { AnimatePresence, motion } from "framer-motion";
-
 
 interface TextEditTemplateProps {
     isEditing: boolean;

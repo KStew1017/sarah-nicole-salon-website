@@ -35,6 +35,7 @@ export default function Home() {
         getStylists();
     }, []);
 
+
     return (
         <>
             <BackgroundIcons

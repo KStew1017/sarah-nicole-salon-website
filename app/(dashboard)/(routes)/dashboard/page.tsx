@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import Loading from "@/components/layout/Loading";
 import { Reveal } from "@/utlis/reveal";
@@ -109,4 +109,3 @@ export default function Dashboard() {
         </>
     );
 }
-
