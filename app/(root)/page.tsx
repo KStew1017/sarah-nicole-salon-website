@@ -26,7 +26,7 @@ export default function Home() {
     useEffect(() => {
         const getStylists = async () => {
             try {
-                const res = await fetch("/api/db-get");
+                const res = await fetch("/api/db-get", { next: { revalidate: 1 } });
                 const data = await res.json();
                 setStylists(data.stylists);
             } catch (error) {
