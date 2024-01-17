@@ -8,7 +8,6 @@ import { LocationSection } from "@/components/(Home)/location/LocationSection";
 import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import { revalidatePath } from "next/cache";
 import revalidateAction from "./revalidation";
 
 export default function Home() {
@@ -35,7 +34,7 @@ export default function Home() {
             }
         };
         getStylists();
-        // revalidateAction();
+        revalidateAction("/api/db-get", "/", true);
     }, []);
 
     return (

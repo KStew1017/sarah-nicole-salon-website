@@ -10,7 +10,10 @@ const nextConfig = {
                 port: "",
             },
         ],
-    }
+    },
+    experimental: {
+       serverActions: true,
+    },
 };
 
 module.exports = nextConfig;
