@@ -33,7 +33,6 @@ export const GallerySection: React.FC = () => {
 
         fetchImages();
 
-    
             const handleResize = () => {
                 const screenWidth = window.innerWidth;
                 if (screenWidth < 768) {

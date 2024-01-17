@@ -34,7 +34,7 @@ export const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
 
         fetchImages();
         setNewImagesAdded(false);
-    }, [name, newImagesAdded]);
+    }, [name, firstName, newImagesAdded]);
 
     const handleFetchImages = async () => {
         try {
