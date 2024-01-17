@@ -9,6 +9,7 @@ import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { revalidatePath } from "next/cache";
+import revalidateAction from "./revalidation";
 
 export default function Home() {
     interface stylistsProps {
@@ -26,7 +27,7 @@ export default function Home() {
     useEffect(() => {
         const getStylists = async () => {
             try {
-                const res = await fetch("/api/db-get", { next: { revalidate: 1 } });
+                const res = await fetch("/api/db-get");
                 const data = await res.json();
                 setStylists(data.stylists);
             } catch (error) {
@@ -34,7 +35,7 @@ export default function Home() {
             }
         };
         getStylists();
-        revalidatePath("/api/db-get");
+        revalidateAction();
     }, []);
 
     return (
