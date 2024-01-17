@@ -7,8 +7,8 @@ import { TestimonialsSection } from "@/components/(Home)/testimonials/Testimonia
 import { LocationSection } from "@/components/(Home)/location/LocationSection";
 import { BackgroundIcons } from "@/components/layout/BackgroundIcons";
 import { faScissors, faSpa, faSprayCanSparkles } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
-import revalidateAction from "./revalidation";
+import { useEffect, useState } from "react"
+import clearCachesByServerAction from "./revalidation";
 
 export default function Home() {
     interface stylistsProps {
@@ -34,7 +34,7 @@ export default function Home() {
             }
         };
         getStylists();
-        revalidateAction("/api/db-get", "/", true);
+        clearCachesByServerAction("/api/db-get");
     }, []);
 
     return (
