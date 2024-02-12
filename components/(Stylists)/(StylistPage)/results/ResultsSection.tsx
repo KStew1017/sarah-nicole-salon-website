@@ -51,7 +51,7 @@ export const ResultsSection: React.FC<ResultsSectionProps> = ({ stylist }) => {
             window.removeEventListener("resize", handleResize);
         };
     }, [stylistFirstName]);
-
+    // console.log(images)
     const handleImageClick = (index: any) => {
         setSelectedImageIndex(index);
         onOpen();

@@ -19,7 +19,7 @@ const s3Client = new S3Client({
     },
 });
 
-export async function GET(req: NextRequest, res: NextApiResponse) {
+export async function GET(req: NextApiRequest, res: NextApiResponse) {
     try {
         const bucketName = "salon-website-images";
         const folderName = "angela-results/";

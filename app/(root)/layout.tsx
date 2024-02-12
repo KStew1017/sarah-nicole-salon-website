@@ -23,10 +23,11 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+    const num = 1231 + 2
     return (
         <html
             lang="en"
-            className={`${northwell.variable} ${northwellAlt.variable} ${northwellSwash.variable} ${PTSerif.variable} scroll-smooth`}
+            className={`${northwell.variable} ${northwellAlt.variable} ${northwellSwash.variable}  ${PTSerif.variable} scroll-smooth`}
         >
             <body>
                 <Providers>
