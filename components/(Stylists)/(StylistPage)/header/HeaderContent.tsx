@@ -18,7 +18,7 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ stylist }) => {
     ));
 
     return (
-        <motion.div
+        <motion.div 
             initial={{ y: 200 }}
             animate={{ y: 0 }}
             transition={{ duration: 1.5, delay: 0.5, type: "spring" }}
