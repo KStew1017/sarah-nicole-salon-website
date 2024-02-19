@@ -7,13 +7,9 @@ import { Reveal } from "@/utlis/reveal";
 import ImageGrid from "../layout/ImageGrid";
 import ImageModal from "../layout/ImageModal";
 
-interface ImagesProps {
-    url: string;
-    folderName: string;
-}
 
 export const GallerySection: React.FC = () => {
-    const [images, setImages] = useState<ImagesProps[]>([]);
+    const [images, setImages] = useState([]);
     const [displayCount, setDisplayCount] = useState(0);
     const [numberOfImageToAdd, setNumberOfImageToAdd] = useState(0);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
