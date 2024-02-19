@@ -1,13 +1,8 @@
 import Image from "next/image";
 import { Skeleton } from "@nextui-org/react";
 
-interface ImagesProps {
-    url: string;
-    folderName: string;
-}
-
 interface ImageGridProps {
-    images: ImagesProps[];
+    images: string[];
     onImageClick: (index: number) => void;
     isLoaded: boolean[];
     setIsLoaded: React.Dispatch<React.SetStateAction<boolean[]>>;
@@ -41,7 +36,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({
                                 className="rounded-[50px] bg-gradient-to-tr from-green via-blue to-green animate-gradient-xy"
                             >
                                 <img
-                                    src={typeof url === 'string' ? url : url.url}
+                                    src={url}
                                     width={400}
                                     height={400}
                                     alt={`result ${i + 1}`}
@@ -59,8 +54,8 @@ const ImageGrid: React.FC<ImageGridProps> = ({
                                 <div className="absolute inset-0 ">
                                     <div className="flex flex-col items-center justify-end h-full text-white">
                                         <p className="font-serif text-light text-[36px] translate-y-[-25px] z-50 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            {url.folderName.split("-")[0][0].toUpperCase() +
-                                                url.folderName.split("-")[0].slice(1)}
+                                            {(url as any).folderName.split("-")[0][0].toUpperCase() +
+                                                (url as any).folderName.split("-")[0].slice(1)}
                                         </p>
                                         <div className="bg-green/25 w-full h-[25%] absolute z-10 rounded-b-[50px] backdrop-filter backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
                                     </div>

@@ -52,8 +52,6 @@ export const ResultsSection: React.FC<ResultsSectionProps> = ({ stylist }) => {
         };
     }, [stylistFirstName]);
 
-    console.log(images)
-
     const handleImageClick = (index: any) => {
         setSelectedImageIndex(index);
         onOpen();

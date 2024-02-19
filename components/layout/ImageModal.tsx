@@ -41,7 +41,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onOpenChange, selectedI
                         isLoaded={isLoaded[selectedImageIndex]}
                         className="rounded-[50px]"
                     >
-                        <Image
+                        <img
                             src={getImageSrc(images[selectedImageIndex + 1])}
                             alt={`result ${selectedImageIndex + 1}`}
                             width={500}
