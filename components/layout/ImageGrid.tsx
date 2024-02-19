@@ -40,7 +40,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({
                                 isLoaded={isLoaded[i]}
                                 className="rounded-[50px] bg-gradient-to-tr from-green via-blue to-green animate-gradient-xy"
                             >
-                                <Image
+                                <img
                                     src={typeof url === 'string' ? url : url.url}
                                     width={400}
                                     height={400}

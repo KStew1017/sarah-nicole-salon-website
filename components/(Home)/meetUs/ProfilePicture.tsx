@@ -4,7 +4,6 @@ interface ProfilePictureProps {
 }
 
 export const ProfilePicture: React.FC<ProfilePictureProps> = ({ stylistName, even }) => {
-    console.log(stylistName.toLowerCase())
     return (
         <img
             src={`/images/${stylistName.toLowerCase()}/${stylistName.toLowerCase()}-headshot.jpeg`}
