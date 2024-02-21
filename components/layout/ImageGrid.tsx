@@ -53,7 +53,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({
                             {gallery ? (
                                 <div className="absolute inset-0 ">
                                     <div className="flex flex-col items-center justify-end h-full text-white">
-                                        <p className="font-serif text-light text-[36px] translate-y-[-25px] z-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <p className="font-serif text-light text-[36px] translate-y-[-25px] z-40 opacity-0 group-hover:opacity-100 transition-opacity">
                                             {(url as any).folderName.split("-")[0][0].toUpperCase() +
                                                 (url as any).folderName.split("-")[0].slice(1)}
                                         </p>
