@@ -22,15 +22,11 @@ const s3Client = new S3Client({
 export async function GET(req: NextRequest, res: NextApiResponse) {
     try {
         const bucketName = "salon-website-images";
-
         const listCommand = new ListObjectsV2Command({
             Bucket: bucketName,
         });
-
         const data = await s3Client.send(listCommand);
-
         const fileObjects = data.Contents || [];
-
         const urls = (
             await Promise.all(
                 fileObjects.map(async (file) => {

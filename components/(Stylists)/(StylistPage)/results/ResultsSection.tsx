@@ -50,7 +50,7 @@ export const ResultsSection: React.FC<ResultsSectionProps> = ({ stylist }) => {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, [stylistFirstName]);
+    }, []);
 
     const handleImageClick = (index: any) => {
         setSelectedImageIndex(index);

@@ -1,25 +1,20 @@
 import { Modal, ModalContent, Skeleton } from "@nextui-org/react";
 import Image from "next/image";
 
-interface ImagesProps {
-    url: string;
-    folderName: string;
-}
-
 interface ImageModalProps {
     isOpen: boolean;
     onOpenChange: () => void;
     selectedImageIndex: number | null;
-    images: ImagesProps[];
+    images: string[];
     isLoaded: boolean[];
     gallery?: boolean;
 }
 
-const getImageSrc = (image: ImagesProps | string): string => {
+const getImageSrc = (image: string): string => {
     if (typeof image === "string") {
         return image;
     } else {
-        return image.url;
+        return image;
     }
 };
 

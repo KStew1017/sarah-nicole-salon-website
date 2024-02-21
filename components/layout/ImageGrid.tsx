@@ -2,7 +2,8 @@ import Image from "next/image";
 import { Skeleton } from "@nextui-org/react";
 
 interface ImageGridProps {
-    images: { url: string }[];
+    images?: string[];
+    galleryImages?: string[];
     onImageClick: (index: number) => void;
     isLoaded: boolean[];
     setIsLoaded: React.Dispatch<React.SetStateAction<boolean[]>>;
@@ -20,6 +21,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({
 }) => {
 
     return (
+
         <div className="grid grid-cols-2 md:grid-cols-3 grid-flow-row gap-[25px] md:gap-[75px] lg:gap-[100px]">
             {images &&
                 images
@@ -29,18 +31,18 @@ const ImageGrid: React.FC<ImageGridProps> = ({
                         <div
                             key={i}
                             onClick={() => onImageClick(i)}
-                            className="relative group"
+                            className="relative group hover:cursor-pointer"
                         >
                             <Skeleton
                                 isLoaded={isLoaded[i]}
                                 className="rounded-[50px] bg-gradient-to-tr from-green via-blue to-green animate-gradient-xy"
                             >
                                 <img
-                                    src={url.url}
+                                    src={url}
                                     width={400}
                                     height={400}
                                     alt={`result ${i + 1}`}
-                                    className="h-auto w-auto object-cover rounded-[50px] shadow-3xl hover:scale-105 transition-transform ease-s-curve aspect-square"
+                                    className="h-auto w-auto object-cover rounded-[50px] shadow-3xl hover:scale-105 group-hover:scale-105 transition-transform ease-s-curve aspect-square"
                                     onLoad={() =>
                                         setIsLoaded((prevState) => {
                                             const newState = [...prevState];
@@ -51,15 +53,17 @@ const ImageGrid: React.FC<ImageGridProps> = ({
                                 />
                             </Skeleton>
                             {gallery ? (
-                                <div className="absolute inset-0 ">
-                                    <div className="flex flex-col items-center justify-end h-full text-white">
-                                        <p className="font-serif text-light text-[36px] translate-y-[-25px] z-50 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            {(url as any).folderName.split("-")[0][0].toUpperCase() +
-                                                (url as any).folderName.split("-")[0].slice(1)}
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="grid h-full w-full place-items-end">
+                                    <div className="grid place-items-center h-[25%] w-full relative">
+                                        <p className="font-serif text-light lg:text-[36px] text-[28px]  z-30 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            {url.split(".com/")[1].split("-results/")[0][0].toUpperCase() + url.split(".com/")[1].split("-results/")[0].substring(1)}
                                         </p>
-                                        <div className="bg-green/25 w-full h-[25%] absolute z-10 rounded-b-[50px] backdrop-filter backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <div className="bg-green-500/25 w-full h-full absolute bottom-0 z-10 rounded-b-[50px] backdrop-filter backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                     </div>
                                 </div>
+                            </div>
+                            
                             ) : null}
                         </div>
                     ))}
