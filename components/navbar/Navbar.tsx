@@ -46,11 +46,11 @@ export const Navbar: React.FC = () => {
                     </NavbarBrand>
                     <NavbarMenuToggle
                         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                        className="lg:hidden"
+                        className="min-[1140px]:hidden"
                     />
                 </NavbarContent>
                 <NavbarContent
-                    className="hidden lg:flex gap-10 mr-[100px]"
+                    className="hidden min-[1140px]:flex gap-10 mr-[100px]"
                     justify="end"
                 >
                     {siteInfo.navItems.map((item) => (
@@ -101,7 +101,7 @@ export const Navbar: React.FC = () => {
                                             />
                                         ) : (
                                             <Expand
-                                                customClass="ml-[-8px] duration-1000 ease-s-curve"
+                                                customClass="ml-[-10px] duration-1000 ease-s-curve"
                                                 color={`${tailwindCustomColors.green}`}
                                             />
                                         )

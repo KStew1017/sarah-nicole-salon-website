@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Skeleton } from "@nextui-org/react";
 
 interface ImageGridProps {
-    images: string[];
+    images: { url: string }[];
     onImageClick: (index: number) => void;
     isLoaded: boolean[];
     setIsLoaded: React.Dispatch<React.SetStateAction<boolean[]>>;
@@ -36,7 +36,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({
                                 className="rounded-[50px] bg-gradient-to-tr from-green via-blue to-green animate-gradient-xy"
                             >
                                 <img
-                                    src={url}
+                                    src={url.url}
                                     width={400}
                                     height={400}
                                     alt={`result ${i + 1}`}
@@ -52,8 +52,8 @@ const ImageGrid: React.FC<ImageGridProps> = ({
                             </Skeleton>
                             {gallery ? (
                                 <div className="absolute inset-0 ">
-                                    <div className="flex flex-col items-center justify-end h-full text-white z-25">
-                                        <p className="font-serif text-light text-[36px] translate-y-[-25px] opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <div className="flex flex-col items-center justify-end h-full text-white">
+                                        <p className="font-serif text-light text-[36px] translate-y-[-25px] z-50 opacity-0 group-hover:opacity-100 transition-opacity">
                                             {(url as any).folderName.split("-")[0][0].toUpperCase() +
                                                 (url as any).folderName.split("-")[0].slice(1)}
                                         </p>
