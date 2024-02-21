@@ -42,7 +42,7 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ stylist }) => {
                             My Socials:
                         </div>
                         <div className="flex flex-col items-center justify-evenly text-light font-serif h-full text-center text-[20px]">
-                            <Link href="https://www.instagram.com/mystifiednails/">
+                            <Link href="https://www.instagram.com/mystifiednails/" target="_blank">
                                 <FontAwesomeIcon icon={faInstagram} className="mt-[10px] h-[40px]" />
                             </Link>
                         </div>
