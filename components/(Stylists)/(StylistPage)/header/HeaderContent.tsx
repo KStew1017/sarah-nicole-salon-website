@@ -1,6 +1,5 @@
 import { StylistType } from "@/utlis/types";
 import { faInstagram, faInstagramSquare } from "@fortawesome/free-brands-svg-icons";
-import { fa, faPauseCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Divider } from "@nextui-org/react";
 import { motion } from "framer-motion";
