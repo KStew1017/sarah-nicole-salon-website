@@ -63,7 +63,6 @@ export const Services: React.FC<ServicesProps> = ({ services, name }) => {
                 });
 
                 const data = await res.json();
-                console.log(data);
             } catch (error) {
                 console.log(error);
             }

@@ -51,7 +51,6 @@ export const Quote: React.FC<QuoteProps> = ({ quote, name }) => {
                 });
 
                 const data = await res.json();
-                console.log(data);
             } catch (error) {
                 console.log(error);
             }

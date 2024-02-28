@@ -58,6 +58,7 @@ export const Navbar: React.FC = () => {
                             key={item.href}
                             isActive={item.href === "/" ? currentPath === item.href : currentPath.startsWith(item.href)}
                             className="relative"
+                            onClick={() => setIsMenuOpen(false)}
                         >
                             <Link
                                 className="text-green text-[18px] font-serif relative block"
