@@ -32,19 +32,7 @@ export async function GET(req: NextRequest, res: NextApiResponse) {
         const data = await s3Client.send(listCommand);
         const fileKeys = data.Contents?.filter(file => !file.Key?.endsWith('/')).map(file => file.Key) || [];
 
-        const urls = await Promise.all(
-            fileKeys.map(async (key) => {
-                const getCommand = new GetObjectCommand({
-                    Bucket: bucketName,
-                    Key: key,
-                });
-
-                const url = await getSignedUrl(s3Client, getCommand, { expiresIn: 3600 });
-                return url;
-            })
-        );
-
-        return NextResponse.json({ urls });
+        return NextResponse.json({ fileKeys });
     } catch (error) {
         return NextResponse.json({ error });
     }

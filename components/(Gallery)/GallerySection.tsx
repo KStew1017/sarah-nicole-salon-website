@@ -16,25 +16,21 @@ export const GallerySection: React.FC = () => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const [isLoaded, setIsLoaded] = useState(new Array(galleryImages.length).fill(false));
 
-    interface ImageObject {
-        url: string;
-    }
 
     useEffect(() => {
         const fetchImages = async () => {
             try {
                 const response = await fetch(`/api/s3-get`);
                 const data = await response.json();
-                const urlStrings: string[] = data.urls.map((item: ImageObject) => item.url);
-                setGalleryImages(urlStrings);
+                const urlPrefixes: string[] = data.randomizedObjects.map((item: any) => item.Key);
+                const filteredUrls = urlPrefixes.filter((url: string) => !url.endsWith("/"));
+                setGalleryImages(filteredUrls);
             } catch (error) {
                 console.error("Error:", error);
             }
         };
 
         fetchImages();
-
-        const refreshImages = setInterval(fetchImages, 1800000);
 
         const handleResize = () => {
             const screenWidth = window.innerWidth;
@@ -53,7 +49,6 @@ export const GallerySection: React.FC = () => {
 
         return () => {
             window.removeEventListener("resize", handleResize);
-            clearInterval(refreshImages);
         }
     }, []);
 

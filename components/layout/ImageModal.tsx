@@ -10,15 +10,8 @@ interface ImageModalProps {
     gallery?: boolean;
 }
 
-const getImageSrc = (image: string): string => {
-    if (typeof image === "string") {
-        return image;
-    } else {
-        return image;
-    }
-};
-
 const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onOpenChange, selectedImageIndex, images, isLoaded }) => {
+    const AWSUrl = "https://salon-website-images.s3.us-east-2.amazonaws.com/";
     return (
         <Modal
             isOpen={isOpen}
@@ -37,8 +30,8 @@ const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onOpenChange, selectedI
                         className="rounded-[50px]"
                     >
                         <img
-                            src={getImageSrc(images[selectedImageIndex + 1])}
-                            alt={`result ${selectedImageIndex + 1}`}
+                            src={AWSUrl + images[selectedImageIndex]}
+                            alt={`result`}
                             width={500}
                             height={1000}
                             className="lg:h-[75vh] w-full object-cover shadow-3xl"

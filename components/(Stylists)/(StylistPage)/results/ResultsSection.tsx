@@ -11,7 +11,7 @@ interface ResultsSectionProps {
 }
 
 export const ResultsSection: React.FC<ResultsSectionProps> = ({ stylist }) => {
-    const [images, setImages] = useState([]);
+    const [images, setImages] = useState<string[]>([]);
     const [displayCount, setDisplayCount] = useState(0);
     const [numberOfImageToAdd, setNumberOfImageToAdd] = useState(0);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
@@ -24,15 +24,14 @@ export const ResultsSection: React.FC<ResultsSectionProps> = ({ stylist }) => {
             try {
                 const response = await fetch(`/api/s3-get/${stylistFirstName}`);
                 const data = await response.json();
-                setImages(data.urls);
+                const urlPrefixes: string[] = data.fileKeys.map((item: any) => item);
+                setImages(urlPrefixes);
             } catch (error) {
                 console.error("Error:", error);
             }
         };
 
         fetchImages();
-
-        const refreshImages = setInterval(fetchImages, 1800000);
 
         const handleResize = () => {
             const screenWidth = window.innerWidth;
@@ -51,7 +50,7 @@ export const ResultsSection: React.FC<ResultsSectionProps> = ({ stylist }) => {
 
         return () => {
             window.removeEventListener("resize", handleResize);
-            clearInterval(refreshImages);
+
         };
     }, []);
 
