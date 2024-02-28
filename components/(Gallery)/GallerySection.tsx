@@ -34,6 +34,8 @@ export const GallerySection: React.FC = () => {
 
         fetchImages();
 
+        const refreshImages = setInterval(fetchImages, 1800000);
+
         const handleResize = () => {
             const screenWidth = window.innerWidth;
             if (screenWidth < 768) {
@@ -51,6 +53,7 @@ export const GallerySection: React.FC = () => {
 
         return () => {
             window.removeEventListener("resize", handleResize);
+            clearInterval(refreshImages);
         }
     }, []);
 

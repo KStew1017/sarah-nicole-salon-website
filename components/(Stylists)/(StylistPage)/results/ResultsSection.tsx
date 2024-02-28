@@ -32,6 +32,8 @@ export const ResultsSection: React.FC<ResultsSectionProps> = ({ stylist }) => {
 
         fetchImages();
 
+        const refreshImages = setInterval(fetchImages, 1800000);
+
         const handleResize = () => {
             const screenWidth = window.innerWidth;
             if (screenWidth < 768) {
@@ -49,6 +51,7 @@ export const ResultsSection: React.FC<ResultsSectionProps> = ({ stylist }) => {
 
         return () => {
             window.removeEventListener("resize", handleResize);
+            clearInterval(refreshImages);
         };
     }, []);
 
